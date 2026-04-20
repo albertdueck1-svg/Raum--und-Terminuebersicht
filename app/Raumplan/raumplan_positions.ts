@@ -593,7 +593,7 @@ export const baseRooms: RoomBase[] = [
        {
         weekdays: [5], // Freitag
         startTime: "6:00",
-        endTime: "18:30",
+        endTime: "11:30",
         hideBookedBy: true,
         hideCurrentEventName: true,
         hideNextEventName: true,
@@ -608,7 +608,7 @@ export const baseRooms: RoomBase[] = [
       },
     ],
     status: "free",
-    time: "13:00-15:00",
+    time: "--:--",
     timeClassName: "text-[10px]",
     top: 890,
     left: 209,
