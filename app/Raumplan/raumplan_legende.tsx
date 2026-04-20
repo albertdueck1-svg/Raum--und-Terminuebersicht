@@ -24,7 +24,7 @@ export const raumplanLegende = {
     backgroundColor: "#ffffff",
     borderColor: "#d4d4d8",
     title: "Legende",
-    subtitle: "Damit du auf einen Blick siehst, welche Räume gerade belegt sind und welcher Weg dich zu den buchbaren Räumen führt",
+    subtitle: "Damit du eine Überblick des New Home´s bekommst",
   }, // Hier kann der Text eingebaut werden, der in dem Legendenbereich erscheinen soll
   items: [
     {

@@ -127,7 +127,7 @@ export const baseRooms: RoomBase[] = [
     top: 687,
     left: 1175,
     width: 430,
-    height: 450,
+    height: 448,
   },
   {
     id: "raum-h",
@@ -231,11 +231,11 @@ export const baseRooms: RoomBase[] = [
     nameClassName: "text-[10px]",
     nameFontSize: "20px",
     bookedBy: "Kalender wird geladen...",
-    labelBackgroundColor: "#2d202000",
-    labelBorderColor: "#010101",
+    labelBackgroundColor: "#f8f8f8",
+    labelBorderColor: "#000000",
     labelColor: "hsl(240, 18%, 3%)",
     labelPosition: "right",
-    labelOffsetX: 0,
+    labelOffsetX: -143,
     labelOffsetY: 12,
     bookedByVisibilityRules: [      // Beispielregel: Am Wochenende blendet die Arena den Namen der buchenden Person aus und zeigt nur die Uhrzeit an.
       {
@@ -280,11 +280,11 @@ export const baseRooms: RoomBase[] = [
     nameClassName: "text-[10px]",
     nameFontSize: "20px",
     bookedBy: "Kalender wird geladen...",
-    labelBackgroundColor: "#2d202000",
+    labelBackgroundColor: "#ffffff",
     labelBorderColor: "#010101",
     labelColor: "hsl(240, 18%, 3%)",
     labelPosition: "right",
-    labelOffsetX: 0,
+    labelOffsetX: -190,
     labelOffsetY: 12,
     bookedByVisibilityRules: [      // Beispielregel: Am Wochenende blendet die Arena den Namen der buchenden Person aus und zeigt nur die Uhrzeit an.
       {
@@ -329,12 +329,12 @@ export const baseRooms: RoomBase[] = [
     nameClassName: "text-[10px]",
     nameFontSize: "25px",
     bookedBy: "Kalender wird geladen...",
-    labelBackgroundColor: "#2d202000",
+    labelBackgroundColor: "#ffffff",
     labelBorderColor: "#010101",
     labelColor: "hsl(240, 18%, 3%)",
     labelPosition: "right",
-    labelOffsetX: 0,
-    labelOffsetY: 8,
+    labelOffsetX: -100,
+    labelOffsetY: -50,
     bookedByVisibilityRules: [      // Beispielregel: Am Wochenende blendet die Arena den Namen der buchenden Person aus und zeigt nur die Uhrzeit an.
       {
         weekdays: [1, 2, 3, 4], // Montag bis Donnerstag

@@ -24,7 +24,7 @@ function getRoomOverlayStyle(status: RoomBase["status"]): CSSProperties {
 
   return {
     backgroundColor: legendItem.fillColor,
-    backgroundImage: legendItem.fillImage && typeof legendItem.fillImage === "string" ? legendItem.fillImage : undefined,
+    backgroundImage: typeof legendItem.fillImage === "string" ? legendItem.fillImage : undefined,
     borderColor: legendItem.borderColor,
     color: "#ffffff",
   } as CSSProperties;
