@@ -1,10 +1,9 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";             // Interne Verlinkung mit Next.js Link-Komponente
 import { useEffect, useState } from "react";
-import { Document, Page, pdfjs } from "react-pdf";
 import RaumplanLegende, { raumplanLegende } from "./raumplan_legende";
-import RaumplanOverlay from "./raumoverlay";
 import { leereRaeume } from "./leere_raeume";
 import {
   baseRooms,
@@ -13,10 +12,16 @@ import {
 } from "./raumplan_positions";
 import { wayfindingPaths } from "./weg_layout";
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(            // Pfad zum PDF.js Worker, damit die PDF-Renderings im Lageplan korrekt funktionieren
-  "pdfjs-dist/build/pdf.worker.min.mjs",                  // PDF.js Worker für die PDF-Renderings im Lageplan
-  import.meta.url,
-).toString();
+const RaumplanPdfViewer = dynamic(() => import("./raumplan_pdf_viewer"), {
+  loading: () => (
+    <div className="overflow-auto rounded-3xl bg-white p-4 shadow-sm ring-1 ring-zinc-200">
+      <div className="flex min-h-[480px] items-center justify-center rounded-2xl border border-dashed border-zinc-300 text-sm text-zinc-500">
+        Lageplan wird geladen...
+      </div>
+    </div>
+  ),
+  ssr: false,
+});
 
 type RoomCalendarData = {                                                                                 // Daten aus dem Kalender-ICS, aufbereitet fuer die Anzeige im Lageplan
   currentEvent: { summary: string; time: string } | null;                                                 // Aktuell laufender Termin, falls vorhanden
@@ -158,25 +163,12 @@ export default function RaumplanPage() {
         
 
         <section>
-          <div className="overflow-auto rounded-3xl bg-white p-4 shadow-sm ring-1 ring-zinc-200">
-            <div className="relative mx-auto w-fit">
-              <Document file="/Lageplan_ICF.pdf" loading="PDF wird geladen...">
-                <Page
-                  pageNumber={1}
-                  width={3000}                      // Feste Breite von 1000px fuer die PDF-Seite, um die Positionierung der Raum-Overlays zu erleichtern, da die Koordinaten der Overlays auf dieser festen Breite basieren
-                  renderAnnotationLayer={false}
-                  renderTextLayer={false}
-                />
-              </Document>
-
-              <RaumplanOverlay
-                orientationPoint={orientationPoint}
-                roomCalendars={roomCalendars}
-                rooms={rooms}
-                wayfindingPaths={wayfindingPaths}
-              />
-            </div>
-          </div>
+          <RaumplanPdfViewer
+            orientationPoint={orientationPoint}
+            roomCalendars={roomCalendars}
+            rooms={rooms}
+            wayfindingPaths={wayfindingPaths}
+          />
         </section>
         <RaumplanLegende />
       </div>
