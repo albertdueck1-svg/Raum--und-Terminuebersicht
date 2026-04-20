@@ -33,6 +33,10 @@ type RoomCalendarData = {                                                       
 
 type RoomCalendarsResponse = Record<string, RoomCalendarData>;   // Antwortstruktur der API, die die Kalenderdaten für alle Räume enthält, wobei der Schlüssel der Raumname ist und der Wert die Kalenderdaten für diesen Raum sind
 
+function isBlockedEvent(summary: string | null | undefined) {
+  return typeof summary === "string" && summary.toLowerCase().includes("block");
+}
+
 function mergeRoomCalendars(
   rooms: RoomBase[],
   calendars: RoomCalendarsResponse | null,
@@ -58,7 +62,7 @@ function mergeRoomCalendars(
       return {
         ...room,
         bookedBy: calendar.currentEvent.summary,
-        status: "live",
+        status: isBlockedEvent(calendar.currentEvent.summary) ? "blocked" : "live",
         time: calendar.currentEvent.time,
       };
     }

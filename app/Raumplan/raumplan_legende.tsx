@@ -1,9 +1,10 @@
-type RoomStatus = "free" | "live" | "soon";
+export type RoomStatus = "free" | "live" | "soon" | "blocked";
 
-type LegendItem = {
+export type LegendItem = {
   borderColor: string;
   description: string;
   fillColor: string;
+  fillImage?: string;
   label: string;
   status: RoomStatus;
 };
@@ -26,9 +27,18 @@ export const raumplanLegende = {
     {
       status: "soon",
       label: "Raum wird gleich belegt",
-      description: "Nächster Termin startet in kürze",
+      description: "Naechster Termin startet in kuerze",
       fillColor: "rgba(245, 158, 11, 0.78)",
       borderColor: "#9b7819",
+    },
+    {
+      status: "blocked",
+      label: "Raum ist geblockt",
+      description: "Aktueller Termin enthaelt das Wort Block",
+      fillColor: "rgba(75, 85, 99, 0.88)",
+      fillImage:
+        "repeating-linear-gradient(135deg, rgba(255,255,255,0.32) 0px, rgba(255,255,255,0.32) 10px, transparent 10px, transparent 20px)",
+      borderColor: "#111827",
     },
     {
       status: "free",
@@ -62,8 +72,16 @@ export const raumplanLegende = {
   },
 } as const;
 
-export function getLegendItemByStatus(status: RoomStatus) {
-  return raumplanLegende.items.find((item) => item.status === status) ?? raumplanLegende.items[0];
+export const defaultLegendItem: LegendItem = {
+  status: "free",
+  label: "Raum ist frei",
+  description: "Momentan keine Belegung",
+  fillColor: "rgba(34, 197, 94, 0.78)",
+  borderColor: "#15803d",
+};
+
+export function getLegendItemByStatus(status: RoomStatus): LegendItem {
+  return raumplanLegende.items.find((item) => item.status === status) ?? defaultLegendItem;
 }
 
 export default function RaumplanLegende() {
@@ -92,6 +110,7 @@ export default function RaumplanLegende() {
               className="h-5 w-5 rounded-md border-2"
               style={{
                 backgroundColor: item.fillColor,
+                backgroundImage: item.fillImage,
                 borderColor: item.borderColor,
               }}
             />

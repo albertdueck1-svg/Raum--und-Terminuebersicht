@@ -30,7 +30,7 @@ export type RoomBase = {
   overlayBorderColor?: string;
   overlayBorderWidth?: string;
   showCalendarInfo?: boolean;
-  status: "free" | "live" | "soon";
+  status: "free" | "live" | "soon" | "blocked";
   time: string;
   timeClassName?: string;
   timeFontSize?: string;
@@ -237,6 +237,32 @@ export const baseRooms: RoomBase[] = [
     labelPosition: "right",
     labelOffsetX: 0,
     labelOffsetY: 12,
+    bookedByVisibilityRules: [      // Beispielregel: Am Wochenende blendet die Arena den Namen der buchenden Person aus und zeigt nur die Uhrzeit an.
+      {
+        weekdays: [1, 2, 3, 4], // Montag bis Donnerstag
+        startTime: "6:00",
+        endTime: "18:30",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+       {
+        weekdays: [5], // Freitag
+        startTime: "6:00",
+        endTime: "11:30",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+       {
+        weekdays: [0], // Sonntag
+        startTime: "14:00",
+        endTime: "23:59",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+    ],
     overlayInfoFontSize: "8px",
     overlayInfoLabelFontSize: "8px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     status: "free",
@@ -260,6 +286,32 @@ export const baseRooms: RoomBase[] = [
     labelPosition: "right",
     labelOffsetX: 0,
     labelOffsetY: 12,
+    bookedByVisibilityRules: [      // Beispielregel: Am Wochenende blendet die Arena den Namen der buchenden Person aus und zeigt nur die Uhrzeit an.
+      {
+        weekdays: [1, 2, 3, 4], // Montag bis Donnerstag
+        startTime: "6:00",
+        endTime: "18:30",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+       {
+        weekdays: [5], // Freitag
+        startTime: "6:00",
+        endTime: "11:30",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+       {
+        weekdays: [0], // Sonntag
+        startTime: "14:00",
+        endTime: "23:59",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+    ],
     overlayInfoFontSize: "8px",
     overlayInfoLabelFontSize: "8px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     status: "free",
@@ -283,6 +335,32 @@ export const baseRooms: RoomBase[] = [
     labelPosition: "right",
     labelOffsetX: 0,
     labelOffsetY: 8,
+    bookedByVisibilityRules: [      // Beispielregel: Am Wochenende blendet die Arena den Namen der buchenden Person aus und zeigt nur die Uhrzeit an.
+      {
+        weekdays: [1, 2, 3, 4], // Montag bis Donnerstag
+        startTime: "6:00",
+        endTime: "18:30",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+       {
+        weekdays: [5], // Freitag
+        startTime: "6:00",
+        endTime: "11:30",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+       {
+        weekdays: [0], // Sonntag
+        startTime: "14:00",
+        endTime: "23:59",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+    ],
     overlayInfoFontSize: "8px",
     overlayInfoLabelFontSize: "8px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     status: "free",
@@ -307,6 +385,32 @@ export const baseRooms: RoomBase[] = [
     labelPosition: "inside",
     labelOffsetX: 12,
     labelOffsetY: 12,
+    bookedByVisibilityRules: [      // Beispielregel: Am Wochenende blendet die Arena den Namen der buchenden Person aus und zeigt nur die Uhrzeit an.
+      {
+        weekdays: [1, 2, 3, 4], // Montag bis Donnerstag
+        startTime: "6:00",
+        endTime: "18:30",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+       {
+        weekdays: [5], // Freitag
+        startTime: "6:00",
+        endTime: "11:30",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+       {
+        weekdays: [0], // Sonntag
+        startTime: "14:00",
+        endTime: "23:59",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+    ],
     status: "free",
     time: "--:-- ",
     timeClassName: "text-[10px]",
@@ -330,6 +434,32 @@ export const baseRooms: RoomBase[] = [
     labelPosition: "inside",
     labelOffsetX: 12,
     labelOffsetY: 12,
+    bookedByVisibilityRules: [      // Beispielregel: Am Wochenende blendet die Arena den Namen der buchenden Person aus und zeigt nur die Uhrzeit an.
+      {
+        weekdays: [1, 2, 3, 4], // Montag bis Donnerstag
+        startTime: "6:00",
+        endTime: "18:30",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+       {
+        weekdays: [5], // Freitag
+        startTime: "6:00",
+        endTime: "11:30",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+       {
+        weekdays: [0], // Sonntag
+        startTime: "14:00",
+        endTime: "23:59",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+    ],
     overlayInfoFontSize: "8px",
     overlayInfoLabelFontSize: "8px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     status: "free",
@@ -353,14 +483,40 @@ export const baseRooms: RoomBase[] = [
     labelPosition: "inside",
     labelOffsetX: 12,
     labelOffsetY: 12,
+    bookedByVisibilityRules: [      // Beispielregel: Am Wochenende blendet die Arena den Namen der buchenden Person aus und zeigt nur die Uhrzeit an.
+      {
+        weekdays: [1, 2, 3, 4], // Montag bis Donnerstag
+        startTime: "6:00",
+        endTime: "18:30",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+       {
+        weekdays: [5], // Freitag
+        startTime: "6:00",
+        endTime: "11:30",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+       {
+        weekdays: [0], // Sonntag
+        startTime: "14:00",
+        endTime: "23:59",
+        hideBookedBy: true,
+        hideCurrentEventName: true,
+        hideNextEventName: true,
+      },
+    ],
     overlayInfoFontSize: "8px",
     overlayInfoLabelFontSize: "8px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     status: "free",
     time: "--:--",
     timeClassName: "text-[10px]",
     top: 802,
-    left: 594,
-    width: 171,
+    left: 595,
+    width: 170,
     height: 142,
   },
   {
@@ -409,8 +565,8 @@ export const baseRooms: RoomBase[] = [
     time: "--:--",
     timeClassName: "text-[14px]",
     top: 948,
-    left: 477,
-    width: 289,
+    left: 478,
+    width: 288,
     height: 165,
   },   
     {

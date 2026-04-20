@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type {
   EventNameVisibilityRule,
   OrientationPoint,
@@ -18,10 +19,12 @@ type RaumplanOverlayProps = {
   wayfindingPaths?: WayfindingPath[];
 };
 
-function getRoomOverlayStyle(status: RoomBase["status"]) {
+function getRoomOverlayStyle(status: RoomBase["status"]): CSSProperties {
   const legendItem = getLegendItemByStatus(status);
+
   return {
     backgroundColor: legendItem.fillColor,
+    backgroundImage: typeof legendItem.fillImage === "string" ? legendItem.fillImage : undefined,
     borderColor: legendItem.borderColor,
     color: "#ffffff",
   };
@@ -33,6 +36,7 @@ function getEffectiveOverlayStyle(room: RoomBase) {
   return {
     ...baseStyle,
     backgroundColor: room.overlayGroundColor ?? baseStyle.backgroundColor,
+    backgroundImage: room.overlayGroundColor ? undefined : baseStyle.backgroundImage,
     borderColor: room.overlayBorderColor ?? baseStyle.borderColor,
     borderWidth: room.overlayBorderWidth ?? "2px",
   };
