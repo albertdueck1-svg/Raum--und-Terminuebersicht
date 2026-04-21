@@ -1,13 +1,11 @@
 "use client";
 
-import { Document, Page, pdfjs } from "react-pdf";
+import Image from "next/image";
 import RaumplanOverlay from "./raumoverlay";
 import type { OrientationPoint, RoomBase, WayfindingPath } from "./raumplan_positions";
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.mjs",
-  import.meta.url,
-).toString();
+const planDisplayWidth = 3000;
+const planDisplayHeight = 2119;
 
 type RoomCalendarData = {
   currentEvent: { summary: string; time: string } | null;
@@ -30,14 +28,18 @@ export default function RaumplanPdfViewer({
   return (
     <div className="overflow-auto rounded-3xl bg-white p-4 shadow-sm ring-1 ring-zinc-200">
       <div className="relative mx-auto w-fit">
-        <Document file="/Lageplan_ICF.pdf" loading="PDF wird geladen...">
-          <Page
-            pageNumber={1}
-            width={3000}
-            renderAnnotationLayer={false}
-            renderTextLayer={false}
-          />
-        </Document>
+        <Image
+          alt="Lageplan ICF"
+          className="block max-w-none"
+          height={planDisplayHeight}
+          priority
+          src="/Lageplan_ICF.png"
+          style={{
+            height: `${planDisplayHeight}px`,
+            width: `${planDisplayWidth}px`,
+          }}
+          width={planDisplayWidth}
+        />
 
         <RaumplanOverlay
           orientationPoint={orientationPoint}

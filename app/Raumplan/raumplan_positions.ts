@@ -24,6 +24,8 @@ export type RoomBase = {
   name: string;
   nameFontSize?: string;
   nameClassName?: string;
+  nameOffsetX?: number;
+  nameOffsetY?: number;
   overlayGroundColor?: string;
   overlayInfoFontSize?: string;
   overlayInfoLabelFontSize?: string;
@@ -47,6 +49,8 @@ export type OrientationPoint = {
   labelOffsetY?: number;
   labelPosition?: "inside" | "right";
   nameFontSize?: string;
+  nameOffsetX?: number;
+  nameOffsetY?: number;
   left: number;
   top: number;
 };
@@ -81,6 +85,8 @@ export const baseRooms: RoomBase[] = [
     contentOrder: ["name", "bookedBy", "time"],
     nameClassName: "text-[10px]",
     nameFontSize: "30px",
+    nameOffsetX: 0,
+    nameOffsetY: -150,
     bookedBy: "Kalender wird geladen...",
     bookedByFontSize: "25px",
     labelBackgroundColor: "#ffffff",

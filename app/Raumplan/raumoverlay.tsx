@@ -185,6 +185,7 @@ export default function RaumplanOverlay({
                   style={{
                     color: room.labelColor,
                     fontSize: room.nameFontSize,
+                    transform: `translate(${room.nameOffsetX ?? 0}px, ${room.nameOffsetY ?? 0}px)`,
                   }}
                 >
                   {room.name}

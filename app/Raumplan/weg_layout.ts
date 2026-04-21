@@ -17,7 +17,7 @@ export const wayfindingPaths: WayfindingPath[] = [
     ],
   },
   {
-    id: "weg-zur-Arena",
+    id: "weg-zur-arena-west",
     label: "Weg zur Arena",
     color: "#2563eb",
     strokeWidth: 10,
@@ -76,21 +76,10 @@ export const wayfindingPaths: WayfindingPath[] = [
       { left: 615, top: 790 },
             ]
   },
-  {
-    id: "weg-zum-skyline-zusatz",
-    label: "Weg zum Skyline Zusatz",
-    color: "#2563eb",
-    strokeWidth: 10,
-    strokeDasharray: "18 12",
-    points: [
-      { left: 1150, top: 775 },
-      { left: 615, top: 775 },
-      { left: 615, top: 790 },
-            ]
- },
+
  {
-    id: "weg-zum-skyline-zusatz",
-    label: "Weg zum Skyline Zusatz",
+    id: "weg-zur-Zugspitze",
+    label: "Weg zur Zugspitze",
     color: "#2563eb",
     strokeWidth: 10,
     strokeDasharray: "18 12",
@@ -116,7 +105,7 @@ export const wayfindingPaths: WayfindingPath[] = [
       ]
  },
    {
-    id: "weg-zur-Alm",
+    id: "weg-zur-Alm-ost",
     label: "Weg zur Alm",
     color: "#2563eb",
     strokeWidth: 10,
@@ -127,7 +116,7 @@ export const wayfindingPaths: WayfindingPath[] = [
       ]
  },
    {
-    id: "weg-zur-Alm",
+    id: "weg-zur-Alm-west",
     label: "Weg zur Alm",
     color: "#2563eb",
     strokeWidth: 10,
@@ -165,7 +154,7 @@ export const wayfindingPaths: WayfindingPath[] = [
       ]
  },
   {
-    id: "weg-zum-Olympiaturm",
+    id: "weg-zum-Olympiaturm-alternative",
     label: "Weg zum Olympiaturm",
     color: "#2563eb",
     strokeWidth: 10,

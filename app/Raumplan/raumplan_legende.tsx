@@ -63,7 +63,7 @@ export const raumplanLegende = {
     },
      
     {
-      id: "free",
+      id: "open-area",
       status: "free",
       label: "Frei nutzbare Fläche",
       description: " ",
@@ -72,7 +72,7 @@ export const raumplanLegende = {
     },
 
         {
-      id: "free",
+      id: "wc-damen",
       status: "free",
       label: "Damen WC",
       description: " ",
@@ -80,7 +80,7 @@ export const raumplanLegende = {
       borderColor: "rgba(227, 93, 189, 0.3)",
     },
             {
-      id: "free",
+      id: "wc-herren",
       status: "free",
       label: "Herren WC",
       description: " ",
@@ -88,7 +88,7 @@ export const raumplanLegende = {
       borderColor: "rgba(58, 149, 223, 0.22)",
     },
             {
-      id: "free",
+      id: "wc-behinderten",
       status: "free",
       label: "Behinderten WC",
       description: " ",

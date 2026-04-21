@@ -168,7 +168,7 @@ export const leereRaeume: RoomBase[] = [
     height: 138,
   },
       {
-    id: "raum-leer-WC-D",
+    id: "raum-leer-WC-D-zusatz",
     name: " ",
     bookedBy: "",
     showCalendarInfo: false,
@@ -222,7 +222,7 @@ export const leereRaeume: RoomBase[] = [
     height: 138,
   },
         {
-    id: "raum-leer-WC-H",
+    id: "raum-leer-WC-H-zusatz",
     name: " ",
     bookedBy: "",
     showCalendarInfo: false,
