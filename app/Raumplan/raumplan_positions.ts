@@ -86,7 +86,7 @@ export const baseRooms: RoomBase[] = [
     nameClassName: "text-[10px]",
     nameFontSize: "30px",
     nameOffsetX: 0,
-    nameOffsetY: -150,
+    nameOffsetY: 0,
     bookedBy: "Kalender wird geladen...",
     bookedByFontSize: "25px",
     labelBackgroundColor: "#ffffff",
