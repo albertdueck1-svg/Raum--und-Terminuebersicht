@@ -1,0 +1,100 @@
+classDiagram
+  direction LR
+
+  class RaumplanPage {
+    +roomCalendars: RoomCalendarsResponse | null
+    +loadRoomCalendars()
+    +mergeRoomCalendars(rooms, calendars) RoomBase[]
+  }
+
+  class RaumplanPdfViewer {
+    +orientationPoint: OrientationPoint
+    +roomCalendars: Record~string, RoomCalendarData~
+    +rooms: RoomBase[]
+    +wayfindingPaths: WayfindingPath[]
+  }
+
+  class RaumplanOverlay {
+    +orientationPoint: OrientationPoint
+    +roomCalendars: Record~string, RoomCalendarData~
+    +rooms: RoomBase[]
+    +wayfindingPaths: WayfindingPath[]
+    +getEffectiveOverlayStyle(room)
+    +getActiveVisibilityRule(rules, now)
+  }
+
+  class RaumplanLegende {
+    +items: LegendItem[]
+    +overlayTexts
+    +pageTexts
+    +getLegendItemByStatus(status) LegendItem
+  }
+
+  class RoomBase {
+    +id: string
+    +name: string
+    +bookedBy: string
+    +status: free | live | soon | blocked
+    +time: string
+    +top: number
+    +left: number
+    +width: number
+    +height: number
+    +showCalendarInfo?: boolean
+  }
+
+  class RoomCalendarData {
+    +currentEvent: Event | null
+    +nextEvent: NextEvent | null
+    +selectedEvent: SelectedEvent | null
+    +todayEvents: DisplayEvent[]
+    +error: boolean
+    +htmlUrl: string
+  }
+
+  class Event {
+    +summary: string
+    +time: string
+  }
+
+  class NextEvent {
+    +summary: string
+    +time: string
+    +minutesUntilStart: number | null
+  }
+
+  class OrientationPoint {
+    +label: string
+    +left: number
+    +top: number
+  }
+
+  class WayfindingPath {
+    +id: string
+    +label?: string
+    +points: WayfindingPoint[]
+    +color?: string
+  }
+
+  class LegendItem {
+    +id: string
+    +status: RoomStatus
+    +label: string
+    +description: string
+    +fillColor: string
+    +borderColor: string
+  }
+
+  RaumplanPage --> RaumplanPdfViewer : rendert
+  RaumplanPage --> RaumplanLegende : rendert
+  RaumplanPage --> RoomCalendarData : laedt per API
+  RaumplanPage --> RoomBase : aktualisiert Status
+  RaumplanPdfViewer --> RaumplanOverlay : rendert ueber Lageplan
+  RaumplanOverlay --> RoomBase : zeigt Raeume
+  RaumplanOverlay --> RoomCalendarData : zeigt Termine
+  RaumplanOverlay --> OrientationPoint : zeigt Standort
+  RaumplanOverlay --> WayfindingPath : zeichnet Wege
+  RaumplanOverlay --> RaumplanLegende : nutzt Farben/Texte
+  RaumplanLegende --> LegendItem : zeigt Eintraege
+  RoomCalendarData --> Event : aktueller Termin
+  RoomCalendarData --> NextEvent : naechster Termin

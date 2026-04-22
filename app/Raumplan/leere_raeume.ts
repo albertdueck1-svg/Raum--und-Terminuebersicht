@@ -95,6 +95,7 @@ export const leereRaeume: RoomBase[] = [
     width: 210,
     height: 144,
   },
+
         {
     id: "raum-leer-kueche-ost",
     name: "Küche",
