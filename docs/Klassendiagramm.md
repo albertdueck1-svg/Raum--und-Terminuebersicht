@@ -1,112 +1,125 @@
 # Einfaches Klassendiagramm Raumplan
 
-[Beschreibung der verwendeten Tools](./Toolbeschreibung.md)
+```plantuml
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam linetype ortho
+skinparam roundcorner 6
+skinparam dpi 180
+skinparam backgroundColor #F2F2F2
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam classAttributeIconSize 0
+skinparam ArrowColor #7A7A7A
+skinparam class {
+  BackgroundColor #E9D7B8
+  BorderColor #8A7A63
+  FontColor #4E463C
+  HeaderBackgroundColor #E2CFAE
+}
 
-![Gerendertes Klassendiagramm](./klassendiagramm.svg)
+class RaumplanPage <<Seite>> {
+  - roomCalendars: RoomCalendarsResponse | null
+  + loadRoomCalendars()
+  + mergeRoomCalendars(rooms, calendars): RoomBase[]
+}
 
-[Klassendiagramm als PDF oeffnen](./klassendiagramm.pdf)
+class RaumplanPdfViewer <<Viewer>> {
+  - orientationPoint: OrientationPoint
+  - roomCalendars: Record<string, RoomCalendarData>
+  - rooms: RoomBase[]
+  - wayfindingPaths: WayfindingPath[]
+}
 
-```mermaid
-classDiagram
-  direction LR
+class RaumplanOverlay <<Overlay>> {
+  - orientationPoint: OrientationPoint
+  - roomCalendars: Record<string, RoomCalendarData>
+  - rooms: RoomBase[]
+  - wayfindingPaths: WayfindingPath[]
+  + getEffectiveOverlayStyle(room)
+  + getActiveVisibilityRule(rules, now)
+}
 
-  class RaumplanPage {
-    +roomCalendars: RoomCalendarsResponse | null
-    +loadRoomCalendars()
-    +mergeRoomCalendars(rooms, calendars) RoomBase[]
-  }
+class RaumplanLegende <<UI>> {
+  - items: LegendItem[]
+  - overlayTexts
+  - pageTexts
+  + getLegendItemByStatus(status): LegendItem
+}
 
-  class RaumplanPdfViewer {
-    +orientationPoint: OrientationPoint
-    +roomCalendars: Record~string, RoomCalendarData~
-    +rooms: RoomBase[]
-    +wayfindingPaths: WayfindingPath[]
-  }
+class RoomBase <<Entity>> {
+  - id: string
+  - name: string
+  - bookedBy: string
+  - status: free | live | soon | blocked
+  - time: string
+  - top: number
+  - left: number
+  - width: number
+  - height: number
+  - showCalendarInfo?: boolean
+}
 
-  class RaumplanOverlay {
-    +orientationPoint: OrientationPoint
-    +roomCalendars: Record~string, RoomCalendarData~
-    +rooms: RoomBase[]
-    +wayfindingPaths: WayfindingPath[]
-    +getEffectiveOverlayStyle(room)
-    +getActiveVisibilityRule(rules, now)
-  }
+class RoomCalendarData <<Entity>> {
+  - currentEvent: Event | null
+  - nextEvent: NextEvent | null
+  - selectedEvent: SelectedEvent | null
+  - todayEvents: DisplayEvent[]
+  - error: boolean
+  - htmlUrl: string
+}
 
-  class RaumplanLegende {
-    +items: LegendItem[]
-    +overlayTexts
-    +pageTexts
-    +getLegendItemByStatus(status) LegendItem
-  }
+class Event <<ValueObject>> {
+  - summary: string
+  - time: string
+}
 
-  class RoomBase {
-    +id: string
-    +name: string
-    +bookedBy: string
-    +status: free | live | soon | blocked
-    +time: string
-    +top: number
-    +left: number
-    +width: number
-    +height: number
-    +showCalendarInfo?: boolean
-  }
+class NextEvent <<ValueObject>> {
+  - summary: string
+  - time: string
+  - minutesUntilStart: number | null
+}
 
-  class RoomCalendarData {
-    +currentEvent: Event | null
-    +nextEvent: NextEvent | null
-    +selectedEvent: SelectedEvent | null
-    +todayEvents: DisplayEvent[]
-    +error: boolean
-    +htmlUrl: string
-  }
+class OrientationPoint <<ValueObject>> {
+  - label: string
+  - left: number
+  - top: number
+}
 
-  class Event {
-    +summary: string
-    +time: string
-  }
+class WayfindingPath <<ValueObject>> {
+  - id: string
+  - label?: string
+  - points: WayfindingPoint[]
+  - color?: string
+}
 
-  class NextEvent {
-    +summary: string
-    +time: string
-    +minutesUntilStart: number | null
-  }
+class LegendItem <<ValueObject>> {
+  - id: string
+  - status: RoomStatus
+  - label: string
+  - description: string
+  - fillColor: string
+  - borderColor: string
+}
 
-  class OrientationPoint {
-    +label: string
-    +left: number
-    +top: number
-  }
+RaumplanPage --> RaumplanPdfViewer : rendert
+RaumplanPage --> RaumplanLegende : rendert
+RaumplanPage --> RoomCalendarData : lädt per API
+RaumplanPage --> RoomBase : aktualisiert Status
 
-  class WayfindingPath {
-    +id: string
-    +label?: string
-    +points: WayfindingPoint[]
-    +color?: string
-  }
+RaumplanPdfViewer --> RaumplanOverlay : zeigt Lageplan mit Overlay
 
-  class LegendItem {
-    +id: string
-    +status: RoomStatus
-    +label: string
-    +description: string
-    +fillColor: string
-    +borderColor: string
-  }
+RaumplanOverlay --> RoomBase : visualisiert Räume
+RaumplanOverlay --> RoomCalendarData : zeigt Termine
+RaumplanOverlay --> OrientationPoint : zeigt Standort
+RaumplanOverlay --> WayfindingPath : zeichnet Wege
+RaumplanOverlay --> RaumplanLegende : nutzt Farben / Texte
 
-  RaumplanPage --> RaumplanPdfViewer : rendert
-  RaumplanPage --> RaumplanLegende : rendert
-  RaumplanPage --> RoomCalendarData : laedt per API
-  RaumplanPage --> RoomBase : aktualisiert Status
-  RaumplanPdfViewer --> RaumplanOverlay : rendert ueber Lageplan
-  RaumplanOverlay --> RoomBase : zeigt Raeume
-  RaumplanOverlay --> RoomCalendarData : zeigt Termine
-  RaumplanOverlay --> OrientationPoint : zeigt Standort
-  RaumplanOverlay --> WayfindingPath : zeichnet Wege
-  RaumplanOverlay --> RaumplanLegende : nutzt Farben/Texte
-  RaumplanLegende --> LegendItem : zeigt Eintraege
-  RoomCalendarData --> Event : aktueller Termin
-  RoomCalendarData --> NextEvent : naechster Termin
+RaumplanLegende --> LegendItem : enthält
+RoomCalendarData --> Event : aktueller Termin
+RoomCalendarData --> NextEvent : nächster Termin
+@enduml
 ```
 
 Kurz gesagt:
@@ -120,10 +133,6 @@ Kurz gesagt:
 - `RaumplanLegende` liefert Farben, Texte und Status-Erklaerungen.
 
 # Einfaches Flussdiagramm Raumplan
-
-![Gerendertes Flussdiagramm](./flussdiagramm.svg)
-
-[Flussdiagramm als PDF oeffnen](./flussdiagramm.pdf)
 
 ```mermaid
 flowchart TD
