@@ -5,7 +5,7 @@ export const wayfindingPaths: WayfindingPath[] = [
   {
     id: "weg-zur-arena",
     label: "Weg zur Arena",
-    color: "#2563eb",
+    color: "#2564ebab",
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
@@ -19,7 +19,7 @@ export const wayfindingPaths: WayfindingPath[] = [
   {
     id: "weg-zur-arena-west",
     label: "Weg zur Arena",
-    color: "#2563eb",
+    color: "#2564ebab",
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
@@ -30,7 +30,7 @@ export const wayfindingPaths: WayfindingPath[] = [
    {
     id: "weg-zum-englischergarten",
     label: "Weg zum Englischergarten",
-    color: "#2563eb",
+    color: "#2564ebab",
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
@@ -42,11 +42,11 @@ export const wayfindingPaths: WayfindingPath[] = [
     {
     id: "weg-zur-Chiemsee",
     label: "Weg zum Chiemsee",
-    color: "#2563eb",
+    color: "#2564ebab",
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
-      { left: 1150, top: 900 },
+      { left: 1150, top: 1170 },
       { left: 1150, top: 1720 },
       { left: 1200, top: 1720 },
       { left: 1200, top: 1705 },
@@ -55,7 +55,7 @@ export const wayfindingPaths: WayfindingPath[] = [
   {
     id: "weg-zum-Glausraum",
     label: "Weg zum Glausraum",
-    color: "#2563eb",
+    color: "#2564ebab",
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
@@ -67,7 +67,7 @@ export const wayfindingPaths: WayfindingPath[] = [
   {
     id: "weg-zum-skyline",
     label: "Weg zum Skyline",
-    color: "#2563eb",
+    color: "#2564ebab",
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
@@ -80,11 +80,11 @@ export const wayfindingPaths: WayfindingPath[] = [
  {
     id: "weg-zur-Zugspitze",
     label: "Weg zur Zugspitze",
-    color: "#2563eb",
+    color: "#2564ebab",
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
-      { left: 1150, top: 775 },
+      { left: 615, top: 775 },
       { left: 510, top: 775 },
       { left: 510, top: 710 },
       { left: 450, top: 710 }, 
@@ -95,7 +95,7 @@ export const wayfindingPaths: WayfindingPath[] = [
   {
     id: "weg-zum-Studio",
     label: "Weg zum Studio",
-    color: "#2563eb",
+    color: "#2564ebab",
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
@@ -107,7 +107,7 @@ export const wayfindingPaths: WayfindingPath[] = [
    {
     id: "weg-zur-Alm-ost",
     label: "Weg zur Alm",
-    color: "#2563eb",
+    color: "#2564ebab",
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
@@ -118,7 +118,7 @@ export const wayfindingPaths: WayfindingPath[] = [
    {
     id: "weg-zur-Alm-west",
     label: "Weg zur Alm",
-    color: "#2563eb",
+    color: "#2564ebab",
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
@@ -130,7 +130,7 @@ export const wayfindingPaths: WayfindingPath[] = [
  {
     id: "weg-zum-Marienplatz",
     label: "Weg zum Marienplatz",
-    color: "#2563eb",
+    color: "#2564ebab",
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
@@ -142,7 +142,7 @@ export const wayfindingPaths: WayfindingPath[] = [
  {
     id: "weg-zum-Olympiaturm",
     label: "Weg zum Olympiaturm",
-    color: "#2563eb",
+    color: "#2564ebab",
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
@@ -156,7 +156,7 @@ export const wayfindingPaths: WayfindingPath[] = [
   {
     id: "weg-zum-Olympiaturm-alternative",
     label: "Weg zum Olympiaturm",
-    color: "#2563eb",
+    color: "#2564ebab",
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
@@ -169,7 +169,7 @@ export const wayfindingPaths: WayfindingPath[] = [
  {
     id: "weg-zum-Eisbach",
     label: "Weg zum Eisbach",
-    color: "#2563eb",
+    color: "#2564ebab",
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [

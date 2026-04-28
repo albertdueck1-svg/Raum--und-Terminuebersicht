@@ -22,10 +22,10 @@ const roomCalendars = {
 
   Studio: {
     htmlUrl:
-      "https://outlook.office365.com/owa/calendar/dfa7a3d9e23e412a9a0aab271ced1a1b@volunteer.icf-muenchen.de/9311edb14fdf4b41b87a9d582d0fd7f7530779887301874631/calendar.html",    
+      "https://outlook.office365.com/owa/calendar/6d5c09983e874642bbee91097d790425@icf-muenchen.de/16f5967f4846402f9694f0b8ac97ea674908797125207886521/calendar.html",    
     
     icsUrl:
-      "https://outlook.office365.com/owa/calendar/dfa7a3d9e23e412a9a0aab271ced1a1b@volunteer.icf-muenchen.de/9311edb14fdf4b41b87a9d582d0fd7f7530779887301874631/calendar.ics",
+      "https://outlook.office365.com/owa/calendar/6d5c09983e874642bbee91097d790425@icf-muenchen.de/16f5967f4846402f9694f0b8ac97ea674908797125207886521/calendar.ics",
   },
 // Link bereits hinterelgt. 
   Chiemsee: {
