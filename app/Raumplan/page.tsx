@@ -149,7 +149,7 @@ export default function RaumplanPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
               Interaktiver Lageplan
             </p>
-            <h1 className="mt-2 text-3xl font-bold">Raumansicht</h1>
+            <h1 className="mt-2 text-3xl font-bold">ICF New Home</h1>
             
           </div>
           <Link
@@ -176,15 +176,3 @@ export default function RaumplanPage() {
   );
 }
 
-
-// arena +
-// chiemsee +
-// englischergarten +
-// zugspitze +
-// skyline +
-// glasraum +
-// alm +
-// eisbach +
-// olympiaturm +
-// marienplatz  +
-// studio
