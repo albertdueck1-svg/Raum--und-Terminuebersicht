@@ -4,8 +4,8 @@ import Image from "next/image";
 import RaumplanOverlay from "./raumoverlay";
 import type { OrientationPoint, RoomBase, WayfindingPath } from "./raumplan_positions";
 
-const planDisplayWidth = 3000;
-const planDisplayHeight = 2119;
+const planDisplayWidth = 1883;
+const planDisplayHeight = 1928;
 
 type RoomCalendarData = {
   currentEvent: { summary: string; time: string } | null;
@@ -33,7 +33,7 @@ export default function RaumplanPdfViewer({
           className="block max-w-none"
           height={planDisplayHeight}
           priority
-          src="/Lageplan_ICF.png"
+          src="/Lageplan_ICF_Neu_V1.png"
           style={{
             height: `${planDisplayHeight}px`,
             width: `${planDisplayWidth}px`,
