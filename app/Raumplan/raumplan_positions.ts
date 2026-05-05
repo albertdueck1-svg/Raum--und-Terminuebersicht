@@ -12,6 +12,15 @@ export type RoomBase = {
   bookedByFontSize?: string;
   bookedByVisibilityRules?: EventNameVisibilityRule[];
   contentOrder?: Array<"name" | "bookedBy" | "time">;     // Mit contentOrder kannst du die Reihenfolge von Raumname, gebucht von und Zeit steuern. Standard ist name - bookedBy - time.
+  eventBubbleBackgroundColor?: string;
+  eventBubbleBorderColor?: string;
+  eventBubbleLabelColor?: string;
+  eventBubblePosition?: "inside" | "right" | "left" | "top" | "bottom";
+  eventBubbleThoughtPosition?: "right" | "left" | "top" | "bottom";
+  eventBubbleTextColor?: string;
+  eventBubbleWidth?: number;
+  eventBubbleOffsetX?: number;
+  eventBubbleOffsetY?: number;
   height: number;
   id: string;
   labelBackgroundColor?: string;
@@ -78,6 +87,8 @@ export type WayfindingPath = {
 // Optional: `showCalendarInfo: false` blendet den Kalenderblock aus, sodass nur der Raumname angezeigt wird.
 // Optional: `contentOrder` steuert die Reihenfolge von Raumname, Terminname und Zeit pro Raum.
 // Optional: `bookedByVisibilityRules` blendet Terminnamen je Raum nach Wochentag und Uhrzeit aus.
+// Optional: `eventBubblePosition` und die weiteren `eventBubble...` Felder gestalten den Terminblock als externe Sprechblase.
+// Optional: `eventBubbleThoughtPosition` steuert die Richtung der Gedankenblasen-Punkte separat.
 export const baseRooms: RoomBase[] = [
   {
     id: "raum-a",
@@ -243,6 +254,16 @@ export const baseRooms: RoomBase[] = [
     labelPosition: "right",
     labelOffsetX: -143,
     labelOffsetY: 12,
+    eventBubblePosition: "top",
+    eventBubbleThoughtPosition: "top",
+    eventBubbleWidth: 250,
+    eventBubbleOffsetY: 0,
+    eventBubbleOffsetX: -150,
+    eventBubbleBackgroundColor: "#ffffff",
+    eventBubbleBorderColor: "#000000",
+    eventBubbleTextColor: "hsl(240, 18%, 3%)",
+    overlayInfoFontSize: "10px",        //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
+    overlayInfoLabelFontSize: "10px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     bookedByVisibilityRules: [      // Beispielregel: Am Wochenende blendet die Arena den Namen der buchenden Person aus und zeigt nur die Uhrzeit an.
       {
         weekdays: [1, 2, 3, 4], // Montag bis Donnerstag
@@ -269,8 +290,7 @@ export const baseRooms: RoomBase[] = [
         hideNextEventName: true,
       },
     ],
-    overlayInfoFontSize: "8px",
-    overlayInfoLabelFontSize: "8px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
+
     status: "free",
     time: "--:--",
     timeClassName: "text-[10px]",
@@ -279,6 +299,7 @@ export const baseRooms: RoomBase[] = [
     width: 49,
     height: 65,
   },
+
  {
     id: "raum-k",
     name: "Olympiaturm",
@@ -292,6 +313,16 @@ export const baseRooms: RoomBase[] = [
     labelPosition: "right",
     labelOffsetX: -190,
     labelOffsetY: 12,
+    eventBubblePosition: "top",
+    eventBubbleThoughtPosition: "left",
+    eventBubbleWidth: 250,
+    eventBubbleOffsetY: -80,
+    eventBubbleOffsetX: -320,
+    eventBubbleBackgroundColor: "#ffffff",
+    eventBubbleBorderColor: "#000000",
+    eventBubbleTextColor: "hsl(240, 18%, 3%)",
+    overlayInfoFontSize: "10px",        //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
+    overlayInfoLabelFontSize: "10px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     bookedByVisibilityRules: [      // Beispielregel: Am Wochenende blendet die Arena den Namen der buchenden Person aus und zeigt nur die Uhrzeit an.
       {
         weekdays: [1, 2, 3, 4], // Montag bis Donnerstag
@@ -318,8 +349,6 @@ export const baseRooms: RoomBase[] = [
         hideNextEventName: true,
       },
     ],
-    overlayInfoFontSize: "8px",
-    overlayInfoLabelFontSize: "8px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     status: "free",
     time: "--:--",
     timeClassName: "text-[10px]",
@@ -341,6 +370,16 @@ export const baseRooms: RoomBase[] = [
     labelPosition: "right",
     labelOffsetX: -130,
     labelOffsetY: -50,
+    eventBubblePosition: "top",
+    eventBubbleThoughtPosition: "left",
+    eventBubbleWidth: 250,
+    eventBubbleOffsetY: -13,
+    eventBubbleOffsetX: -260,
+    eventBubbleBackgroundColor: "#ffffff",
+    eventBubbleBorderColor: "#000000",
+    eventBubbleTextColor: "hsl(240, 18%, 3%)",
+    overlayInfoFontSize: "12px",        //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
+    overlayInfoLabelFontSize: "12px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     bookedByVisibilityRules: [      // Beispielregel: Am Wochenende blendet die Arena den Namen der buchenden Person aus und zeigt nur die Uhrzeit an.
       {
         weekdays: [1, 2, 3, 4], // Montag bis Donnerstag
@@ -367,9 +406,7 @@ export const baseRooms: RoomBase[] = [
         hideNextEventName: true,
       },
     ],
-    overlayInfoFontSize: "8px",
-    overlayInfoLabelFontSize: "8px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
-    status: "free",
+        status: "free",
     time: "--:--",
     timeClassName: "text-[10px]",
     top: 510,
@@ -420,8 +457,8 @@ export const baseRooms: RoomBase[] = [
     status: "free",
     time: "--:-- ",
     timeClassName: "text-[10px]",
-    overlayInfoFontSize: "8px",
-    overlayInfoLabelFontSize: "8px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
+    overlayInfoFontSize: "9px",
+    overlayInfoLabelFontSize: "9px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     top: 486,
     left: 1030,
     width: 119,
@@ -466,8 +503,8 @@ export const baseRooms: RoomBase[] = [
         hideNextEventName: true,
       },
     ],
-    overlayInfoFontSize: "8px",
-    overlayInfoLabelFontSize: "8px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
+    overlayInfoFontSize: "8.5px",
+    overlayInfoLabelFontSize: "8.5px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     status: "free",
     time: "--:--",
     timeClassName: "text-[10px]",
@@ -515,8 +552,8 @@ export const baseRooms: RoomBase[] = [
         hideNextEventName: true,
       },
     ],
-    overlayInfoFontSize: "8px",
-    overlayInfoLabelFontSize: "8px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
+    overlayInfoFontSize: "10px",
+    overlayInfoLabelFontSize: "10px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     status: "free",
     time: "--:--",
     timeClassName: "text-[10px]",
@@ -563,8 +600,8 @@ export const baseRooms: RoomBase[] = [
         hideNextEventName: true,
       },
     ],
-    overlayInfoFontSize: "8px",
-    overlayInfoLabelFontSize: "8px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
+    overlayInfoFontSize: "12px",
+    overlayInfoLabelFontSize: "12px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     // overlayBorderColor: "#a16207",
     // overlayBorderWidth: "3px",
     status: "free",

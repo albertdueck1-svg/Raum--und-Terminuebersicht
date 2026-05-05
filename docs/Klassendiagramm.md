@@ -38,6 +38,9 @@ class RaumplanOverlay <<Overlay>> {
   - rooms: RoomBase[]
   - wayfindingPaths: WayfindingPath[]
   + getEffectiveOverlayStyle(room)
+  + getEventBubbleStyle(room)
+  + getEventBubblePosition(room)
+  + getThoughtBubbleDots(room)
   + getActiveVisibilityRule(rules, now)
 }
 
@@ -54,6 +57,15 @@ class RoomBase <<Entity>> {
   - bookedBy: string
   - status: free | live | soon | blocked
   - time: string
+  - eventBubblePosition?: inside | right | left | top | bottom
+  - eventBubbleThoughtPosition?: right | left | top | bottom
+  - eventBubbleWidth?: number
+  - eventBubbleOffsetX?: number
+  - eventBubbleOffsetY?: number
+  - eventBubbleBackgroundColor?: string
+  - eventBubbleBorderColor?: string
+  - eventBubbleTextColor?: string
+  - eventBubbleLabelColor?: string
   - top: number
   - left: number
   - width: number
@@ -115,6 +127,7 @@ RaumplanOverlay --> RoomCalendarData : zeigt Termine
 RaumplanOverlay --> OrientationPoint : zeigt Standort
 RaumplanOverlay --> WayfindingPath : zeichnet Wege
 RaumplanOverlay --> RaumplanLegende : nutzt Farben / Texte
+RaumplanOverlay --> RoomBase : nutzt Gedankenblasen-Optionen
 
 RaumplanLegende --> LegendItem : enthält
 RoomCalendarData --> Event : aktueller Termin
@@ -125,11 +138,11 @@ RoomCalendarData --> NextEvent : nächster Termin
 Kurz gesagt:
 
 - `RaumplanPage` ist die Hauptseite. Sie holt Kalenderdaten von `/api/room-calendars`.
-- `RoomBase` beschreibt einen Raum auf dem Lageplan, inklusive Position, Groesse und Status.
+- `RoomBase` beschreibt einen Raum auf dem Lageplan, inklusive Position, Status und optionaler Einstellungen fuer externe Terminblasen.
 - `RoomCalendarData` beschreibt die Termine eines Raums.
 - `mergeRoomCalendars` verbindet Raumdaten und Kalenderdaten.
 - `RaumplanPdfViewer` zeigt den Lageplan als Bild.
-- `RaumplanOverlay` legt Raeume, Wege und Standort ueber den Lageplan.
+- `RaumplanOverlay` legt Raeume, Wege und Standort ueber den Lageplan und kann einzelne Terminbloecke als Gedankenblasen ausserhalb eines Overlays darstellen.
 - `RaumplanLegende` liefert Farben, Texte und Status-Erklaerungen.
 
 # Einfaches Flussdiagramm Raumplan

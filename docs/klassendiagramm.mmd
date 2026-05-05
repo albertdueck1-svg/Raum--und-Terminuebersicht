@@ -20,6 +20,9 @@ classDiagram
     +rooms: RoomBase[]
     +wayfindingPaths: WayfindingPath[]
     +getEffectiveOverlayStyle(room)
+    +getEventBubbleStyle(room)
+    +getEventBubblePosition(room)
+    +getThoughtBubbleDots(room)
     +getActiveVisibilityRule(rules, now)
   }
 
@@ -36,6 +39,15 @@ classDiagram
     +bookedBy: string
     +status: free | live | soon | blocked
     +time: string
+    +eventBubblePosition?: inside | right | left | top | bottom
+    +eventBubbleThoughtPosition?: right | left | top | bottom
+    +eventBubbleWidth?: number
+    +eventBubbleOffsetX?: number
+    +eventBubbleOffsetY?: number
+    +eventBubbleBackgroundColor?: string
+    +eventBubbleBorderColor?: string
+    +eventBubbleTextColor?: string
+    +eventBubbleLabelColor?: string
     +top: number
     +left: number
     +width: number
@@ -95,6 +107,7 @@ classDiagram
   RaumplanOverlay --> OrientationPoint : zeigt Standort
   RaumplanOverlay --> WayfindingPath : zeichnet Wege
   RaumplanOverlay --> RaumplanLegende : nutzt Farben/Texte
+  RaumplanOverlay --> RoomBase : nutzt Gedankenblasen-Optionen
   RaumplanLegende --> LegendItem : zeigt Eintraege
   RoomCalendarData --> Event : aktueller Termin
   RoomCalendarData --> NextEvent : naechster Termin

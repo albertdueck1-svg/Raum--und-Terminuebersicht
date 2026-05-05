@@ -42,6 +42,98 @@ function getEffectiveOverlayStyle(room: RoomBase) {
   };
 }
 
+function getEventBubbleStyle(room: RoomBase): CSSProperties {
+  const legendItem = getLegendItemByStatus(room.status);
+
+  return {
+    backgroundColor:
+      room.eventBubbleBackgroundColor ??
+      (room.status === "blocked" ? "rgba(17, 24, 39, 0.95)" : "rgba(255, 255, 255, 0.96)"),
+    borderColor: room.eventBubbleBorderColor ?? legendItem.borderColor,
+    color: room.eventBubbleTextColor ?? (room.status === "blocked" ? "#f9fafb" : "#111827"),
+  };
+}
+
+function getEventBubblePosition(room: RoomBase): CSSProperties {
+  const position = room.eventBubblePosition ?? "right";
+  const offsetX = room.eventBubbleOffsetX ?? 16;
+  const offsetY = room.eventBubbleOffsetY ?? 0;
+
+  switch (position) {
+    case "left":
+      return {
+        right: room.width + offsetX,
+        top: "50%",
+        transform: `translateY(calc(-50% + ${offsetY}px))`,
+      };
+    case "top":
+      return {
+        left: "50%",
+        bottom: room.height + 16 + offsetY,
+        transform: `translateX(calc(-50% + ${offsetX}px))`,
+      };
+    case "bottom":
+      return {
+        left: "50%",
+        top: room.height + 16 + offsetY,
+        transform: `translateX(calc(-50% + ${offsetX}px))`,
+      };
+    case "inside":
+      return {
+        left: "50%",
+        top: "50%",
+        transform: `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px))`,
+      };
+    case "right":
+    default:
+      return {
+        left: room.width + offsetX,
+        top: "50%",
+        transform: `translateY(calc(-50% + ${offsetY}px))`,
+      };
+  }
+}
+
+function getThoughtBubbleDots(room: RoomBase) {
+  const position = room.eventBubbleThoughtPosition ?? room.eventBubblePosition ?? "right";
+
+  switch (position) {
+    case "left":
+      return [
+        { size: 16, style: { right: -14, top: "50%", transform: "translateX(-50%)" } },
+        { size: 11, style: { right: -26, top: "56%", transform: "translateX(-50%)" } },
+        { size: 7, style: { right: -35, top: "62%", transform: "translateX(-50%)" } },
+        // { size: 20, style: { right: -20, top: "50%", transform: "translateY(-50%)" } },
+        // { size: 18, style: { right: -43, top: "57%", transform: "translateY(-50%)" } },
+        // { size: 16, style: { right: -65, top: "62%", transform: "translateY(-50%)" } },
+        // { size: 14, style: { right: -85, top: "66.5%", transform: "translateY(-50%)" } },
+        // { size: 12, style: { right: -105, top: "70%", transform: "translateY(-50%)" } },
+        // { size: 10, style: { right: -122, top: "74%", transform: "translateY(-50%)" } },
+      ];
+    case "top":
+      return [
+        { size: 16, style: { bottom: -14, left: "50%", transform: "translateX(-50%)" } },
+        { size: 11, style: { bottom: -26, left: "56%", transform: "translateX(-50%)" } },
+        { size: 7, style: { bottom: -35, left: "62%", transform: "translateX(-50%)" } },
+        // { size: 6, style: { bottom: -45, left: "67%", transform: "translateX(-50%)" } },
+      ];
+    case "bottom":
+      return [
+        { size: 16, style: { top: -14, left: "50%", transform: "translateX(-50%)" } },
+        { size: 11, style: { top: -26, left: "44%", transform: "translateX(-50%)" } },
+        { size: 7, style: { top: -35, left: "38%", transform: "translateX(-50%)" } },
+      ];
+    case "inside":
+    case "right":
+    default:
+      return [
+        { size: 16, style: { left: -14, top: "50%", transform: "translateY(-50%)" } },
+        { size: 11, style: { left: -26, top: "58%", transform: "translateY(-50%)" } },
+        { size: 7, style: { left: -35, top: "66%", transform: "translateY(-50%)" } },
+      ];
+  }
+}
+
 function getBerlinWeekdayAndMinutes(now: Date) {
   const weekdayFormatter = new Intl.DateTimeFormat("en-US", {
     timeZone: "Europe/Berlin",
@@ -165,6 +257,7 @@ export default function RaumplanOverlay({
         const showNextEventName = !activeRule?.hideNextEventName;
         const showOverlayEventBlock =
           room.showCalendarInfo !== false && !!roomCalendars?.[room.name];
+        const showEventBubble = room.name === "Eisbach" || room.name === "Olympiaturm" || room.name === "Marienplatz";
 
         return (
           <div
@@ -193,45 +286,114 @@ export default function RaumplanOverlay({
               ) : null}
 
               {showOverlayEventBlock ? (
-                <div
-                  className="mt-2 flex max-w-full flex-col gap-1 rounded-md bg-black/20 px-2 py-1 text-left font-medium text-white"
-                  style={{
-                    fontSize: room.overlayInfoFontSize ?? "10px",
-                  }}
-                >
-                  <span
-                    className="uppercase tracking-[0.12em] text-white/80"
+                showEventBubble ? (
+                  <div
+                    className="absolute z-20 flex w-[220px] max-w-[280px] flex-col gap-1 rounded-2xl border px-3 py-3 text-left font-medium shadow-xl"
                     style={{
-                      fontSize: room.overlayInfoLabelFontSize ?? "9px",
+                      ...getEventBubbleStyle(room),
+                      ...getEventBubblePosition(room),
+                      fontSize: room.overlayInfoFontSize ?? "10px",
+                      width: room.eventBubbleWidth ? `${room.eventBubbleWidth}px` : undefined,
                     }}
                   >
-                    {raumplanLegende.overlayTexts.currentLabel}
-                  </span>
-                  {showCurrentEventName ? (
-                    <span className="truncate">
-                      {roomCalendars[room.name].currentEvent?.summary ?? raumplanLegende.overlayTexts.currentEventFallback}
+                    {getThoughtBubbleDots(room).map((dot, index) => (
+                      <span
+                        key={`${room.id}-thought-dot-${index}`}
+                        aria-hidden="true"
+                        className="absolute rounded-full border"
+                        style={{
+                          ...dot.style,
+                          width: dot.size,
+                          height: dot.size,
+                          backgroundColor: getEventBubbleStyle(room).backgroundColor,
+                          borderColor: getEventBubbleStyle(room).borderColor,
+                        }}
+                      />
+                    ))}
+                    <span
+                      className="uppercase tracking-[0.12em]"
+                      style={{
+                        color: room.eventBubbleLabelColor ?? (room.status === "blocked" ? "rgba(249, 250, 251, 0.72)" : "rgba(17, 24, 39, 0.58)"),
+                        fontSize: room.overlayInfoLabelFontSize ?? "9px",
+                      }}
+                    >
+                      {raumplanLegende.overlayTexts.currentLabel}
                     </span>
-                  ) : null}
-                  <span className="text-white/80">
-                    {roomCalendars[room.name].currentEvent?.time ?? raumplanLegende.overlayTexts.currentTimeFallback}
-                  </span>
-                  <span
-                    className="mt-1 uppercase tracking-[0.12em] text-white/80"
+                    {showCurrentEventName ? (
+                      <span className="break-words leading-snug">
+                        {roomCalendars[room.name].currentEvent?.summary ?? raumplanLegende.overlayTexts.currentEventFallback}
+                      </span>
+                    ) : null}
+                    <span
+                      style={{
+                        color: room.eventBubbleLabelColor ?? (room.status === "blocked" ? "rgba(249, 250, 251, 0.72)" : "rgba(17, 24, 39, 0.68)"),
+                      }}
+                    >
+                      {roomCalendars[room.name].currentEvent?.time ?? raumplanLegende.overlayTexts.currentTimeFallback}
+                    </span>
+                    <span
+                      className="mt-2 uppercase tracking-[0.12em]"
+                      style={{
+                        color: room.eventBubbleLabelColor ?? (room.status === "blocked" ? "rgba(249, 250, 251, 0.72)" : "rgba(17, 24, 39, 0.58)"),
+                        fontSize: room.overlayInfoLabelFontSize ?? "9px",
+                      }}
+                    >
+                      {raumplanLegende.overlayTexts.nextLabel}
+                    </span>
+                    {showNextEventName ? (
+                      <span className="break-words leading-snug">
+                        {roomCalendars[room.name].nextEvent?.summary ?? raumplanLegende.overlayTexts.nextEventFallback}
+                      </span>
+                    ) : null}
+                    <span
+                      style={{
+                        color: room.eventBubbleLabelColor ?? (room.status === "blocked" ? "rgba(249, 250, 251, 0.72)" : "rgba(17, 24, 39, 0.68)"),
+                      }}
+                    >
+                      {roomCalendars[room.name].nextEvent?.time ?? raumplanLegende.overlayTexts.nextTimeFallback}
+                    </span>
+                  </div>
+                ) : (
+                  <div
+                    className="mt-2 flex max-w-full flex-col gap-1 rounded-md bg-black/20 px-2 py-1 text-left font-medium text-white"
                     style={{
-                      fontSize: room.overlayInfoLabelFontSize ?? "9px",
+                      fontSize: room.overlayInfoFontSize ?? "10px",
                     }}
                   >
-                    {raumplanLegende.overlayTexts.nextLabel}
-                  </span>
-                  {showNextEventName ? (
-                    <span className="truncate">
-                      {roomCalendars[room.name].nextEvent?.summary ?? raumplanLegende.overlayTexts.nextEventFallback}
+                    <span
+                      className="uppercase tracking-[0.12em] text-white/80"
+                      style={{
+                        fontSize: room.overlayInfoLabelFontSize ?? "9px",
+                      }}
+                    >
+                      {raumplanLegende.overlayTexts.currentLabel}
                     </span>
-                  ) : null}
-                  <span className="text-white/80">
-                    {roomCalendars[room.name].nextEvent?.time ?? raumplanLegende.overlayTexts.nextTimeFallback}
-                  </span>
-                </div>
+                    {showCurrentEventName ? (
+                      <span className="truncate">
+                        {roomCalendars[room.name].currentEvent?.summary ?? raumplanLegende.overlayTexts.currentEventFallback}
+                      </span>
+                    ) : null}
+                    <span className="text-white/80">
+                      {roomCalendars[room.name].currentEvent?.time ?? raumplanLegende.overlayTexts.currentTimeFallback}
+                    </span>
+                    <span
+                      className="mt-1 uppercase tracking-[0.12em] text-white/80"
+                      style={{
+                        fontSize: room.overlayInfoLabelFontSize ?? "9px",
+                      }}
+                    >
+                      {raumplanLegende.overlayTexts.nextLabel}
+                    </span>
+                    {showNextEventName ? (
+                      <span className="truncate">
+                        {roomCalendars[room.name].nextEvent?.summary ?? raumplanLegende.overlayTexts.nextEventFallback}
+                      </span>
+                    ) : null}
+                    <span className="text-white/80">
+                      {roomCalendars[room.name].nextEvent?.time ?? raumplanLegende.overlayTexts.nextTimeFallback}
+                    </span>
+                  </div>
+                )
               ) : null}
 
               {room.labelPosition === "right" ? (
