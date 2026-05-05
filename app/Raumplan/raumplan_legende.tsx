@@ -1,6 +1,6 @@
 import { wayfindingPaths } from "./weg_layout";
 
-export type RoomStatus = "free" | "live" | "soon" | "blocked";
+export type RoomStatus = "free" | "live" | "soon" | "blocked" | "calendar-error";
 
 export type LegendItem = {
   id: string;
@@ -52,6 +52,14 @@ export const raumplanLegende = {
       fillImage:
         "repeating-linear-gradient(135deg, rgba(255,255,255,0.32) 0px, rgba(255,255,255,0.32) 10px, transparent 10px, transparent 20px)",
       borderColor: "#111827",
+    },
+    {
+      id: "calendar-error",
+      status: "calendar-error",
+      label: "Kalender nicht erreichbar",
+      description: " ",
+      fillColor: "rgba(78, 222, 233, 0.82)",
+      borderColor: "#7c3aed",
     },
     {
       id: "free",

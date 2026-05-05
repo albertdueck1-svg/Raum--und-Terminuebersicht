@@ -55,7 +55,7 @@ class RoomBase <<Entity>> {
   - id: string
   - name: string
   - bookedBy: string
-  - status: free | live | soon | blocked
+  - status: free | live | soon | blocked | calendar-error
   - time: string
   - eventBubblePosition?: inside | right | left | top | bottom
   - eventBubbleThoughtPosition?: right | left | top | bottom
@@ -138,7 +138,7 @@ RoomCalendarData --> NextEvent : nächster Termin
 Kurz gesagt:
 
 - `RaumplanPage` ist die Hauptseite. Sie holt Kalenderdaten von `/api/room-calendars`.
-- `RoomBase` beschreibt einen Raum auf dem Lageplan, inklusive Position, Status und optionaler Einstellungen fuer externe Terminblasen.
+- `RoomBase` beschreibt einen Raum auf dem Lageplan, inklusive Position, Status, Fehlerstatus fuer nicht erreichbare Kalender und optionaler Einstellungen fuer externe Terminblasen.
 - `RoomCalendarData` beschreibt die Termine eines Raums.
 - `mergeRoomCalendars` verbindet Raumdaten und Kalenderdaten.
 - `RaumplanPdfViewer` zeigt den Lageplan als Bild.
@@ -166,9 +166,11 @@ flowchart TD
   I --> J
   C1 --> J
 
-  J --> K{Raum hat Kalenderdaten?}
-  K -- Nein --> L[Raum unveraendert anzeigen]
-  K -- Ja --> M{Aktueller Termin vorhanden?}
+  J --> J1{Raum hat Kalenderdaten?}
+  J1 -- Nein --> L[Status: calendar-error]
+  J1 -- Ja --> J2{Kalenderfehler vorhanden?}
+  J2 -- Ja --> L
+  J2 -- Nein --> M{Aktueller Termin vorhanden?}
 
   M -- Ja --> N{Termin enthaelt block?}
   N -- Ja --> O[Status: blocked]
@@ -198,6 +200,6 @@ Kurz gesagt:
 
 - Die Seite laedt zuerst die statischen Raumpositionen.
 - Danach ruft sie die Kalender-API ab.
-- Aus den Kalenderdaten wird pro Raum ein Status berechnet: `free`, `live`, `soon` oder `blocked`.
+- Aus den Kalenderdaten wird pro Raum ein Status berechnet: `free`, `live`, `soon`, `blocked` oder `calendar-error`.
 - Am Ende werden alle Raeume ueber den Lageplan gelegt.
 - Der Kalenderstatus wird automatisch alle 3 Sekunden aktualisiert.

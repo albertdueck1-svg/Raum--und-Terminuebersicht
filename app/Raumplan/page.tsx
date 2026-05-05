@@ -50,14 +50,20 @@ function mergeRoomCalendars(
     const calendar = calendars?.[room.name];                                              // Holt die Kalenderdaten fuer den aktuellen Raum, falls vorhanden  
 
     if (!calendar) {                                                                  // Falls keine Kalenderdaten gefunden wurden, wird der Raum mit einem Fehlerstatus angezeigt
-      return room;                                                                    // Raumdaten bleiben unveraendert, da keine Informationen zum Buchungsstatus vorliegen
+      return {
+        ...room,
+        bookedBy: raumplanLegende.pageTexts.calendarErrorBookedBy,
+        status: "calendar-error",
+        time: raumplanLegende.pageTexts.calendarErrorTime,
+        timeClassName: "text-[8px]",
+      };
     }
 
     if (calendar.error) {                                                         // Falls ein Fehler beim Laden des Kalenders aufgetreten ist, wird der Raum mit einem Fehlerstatus angezeigt
       return {
         ...room,
         bookedBy: raumplanLegende.pageTexts.calendarErrorBookedBy,
-        status: "free",
+        status: "calendar-error",
         time: raumplanLegende.pageTexts.calendarErrorTime,
         timeClassName: "text-[8px]",                                        // Noch kleinere Schrift, da die Fehlermeldung laenger ist als typische Zeitangaben
       };
@@ -175,4 +181,3 @@ export default function RaumplanPage() {
     </main>
   );
 }
-

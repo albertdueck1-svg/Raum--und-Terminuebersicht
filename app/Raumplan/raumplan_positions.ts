@@ -41,7 +41,7 @@ export type RoomBase = {
   overlayBorderColor?: string;
   overlayBorderWidth?: string;
   showCalendarInfo?: boolean;
-  status: "free" | "live" | "soon" | "blocked";
+  status: "free" | "live" | "soon" | "blocked" | "calendar-error";
   time: string;
   timeClassName?: string;
   timeFontSize?: string;

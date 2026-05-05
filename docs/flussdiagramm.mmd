@@ -16,9 +16,11 @@ flowchart TD
   I --> J
   C1 --> J
 
-  J --> K{Raum hat Kalenderdaten?}
-  K -- Nein --> L[Raum unveraendert anzeigen]
-  K -- Ja --> M{Aktueller Termin vorhanden?}
+  J --> J1{Raum hat Kalenderdaten?}
+  J1 -- Nein --> L[Status: calendar-error]
+  J1 -- Ja --> J2{Kalenderfehler vorhanden?}
+  J2 -- Ja --> L
+  J2 -- Nein --> M{Aktueller Termin vorhanden?}
 
   M -- Ja --> N{Termin enthaelt block?}
   N -- Ja --> O[Status: blocked]
