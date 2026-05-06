@@ -72,7 +72,7 @@ export const leereRaeume: RoomBase[] = [
     overlayBorderWidth: "2px",
     top: 174,
     left: 1317,
-    width: 379,
+    width: 380,
     height: 228,
   },
 
