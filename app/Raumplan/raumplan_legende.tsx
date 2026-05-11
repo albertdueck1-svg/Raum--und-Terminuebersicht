@@ -9,6 +9,8 @@ export type LegendItem = {
   fillColor: string;
   fillImage?: string;
   label: string;
+  titelColor?: string;
+  subtitleColor?: string;
   preview?: "swatch" | "wayfinding";
   status: RoomStatus;
 };
@@ -21,10 +23,12 @@ const defaultWayfindingStyle = {
 
 export const raumplanLegende = {      
   card: {                                   
-    backgroundColor: "#ffffff",
-    borderColor: "#d4d4d8",
+    backgroundColor: "#100d0d",
+    borderColor: "#100f0f",
     title: "Legende",
-    subtitle: "Damit du eine Überblick des New Home´s bekommst",
+    titleColor: "#ffffff",
+    subtitle: "Damit du einen Überblick des New Home´s bekommst",
+    subtitleColor: "#ffffff",
   }, // Hier kann der Text eingebaut werden, der in dem Legendenbereich erscheinen soll
   items: [
     {
@@ -162,14 +166,24 @@ export default function RaumplanLegende() {
         borderColor: raumplanLegende.card.borderColor,
       }}
     >
-      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">
+      <p
+        className="text-sm font-semibold uppercase tracking-[0.18em]"
+        style={{
+          color: raumplanLegende.card.titleColor,
+        }}
+      >
         {raumplanLegende.card.title}
       </p>
-      <p className="mt-2 max-w-2xl text-sm text-zinc-600">
+      <p
+        className="mt-2 max-w-2xl text-sm"
+        style={{
+          color: raumplanLegende.card.subtitleColor,
+        }}
+      >
         {raumplanLegende.card.subtitle}
       </p>
 
-      <div className="mt-4 flex flex-wrap gap-4">
+      <div className="mt-4 flex flex-wrap gap-4 ">
         {raumplanLegende.items.map((item) => (
           <div
             key={item.id}
@@ -199,7 +213,7 @@ export default function RaumplanLegende() {
               </svg>
             ) : (
               <span
-                className="h-5 w-5 shrink-0 rounded-md border-2"
+                className="h-5 w-5 shrink-0 rounded-md border-2 "
                 style={{
                   backgroundColor: item.fillColor,
                   backgroundImage: item.fillImage,

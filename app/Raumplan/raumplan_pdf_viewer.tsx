@@ -26,7 +26,7 @@ export default function RaumplanPdfViewer({
   wayfindingPaths = [],
 }: RaumplanPdfViewerProps) {
   return (
-    <div className="overflow-auto rounded-3xl bg-white p-4 shadow-sm ring-1 ring-zinc-200">
+    <div className="overflow-auto rounded-3xl bg-white p-4 shadow-sm ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-700"> // Hier kann der Darkmode eingestellt werden fürs PDF
       <div className="relative mx-auto w-fit">
         <Image
           alt="Lageplan ICF"
@@ -34,6 +34,7 @@ export default function RaumplanPdfViewer({
           height={planDisplayHeight}
           priority
           src="/Lageplan_ICF_Neu_V3.png"
+          // src="/Lageplan_ICF_Neu_V4.png"
           style={{
             height: `${planDisplayHeight}px`,
             width: `${planDisplayWidth}px`,

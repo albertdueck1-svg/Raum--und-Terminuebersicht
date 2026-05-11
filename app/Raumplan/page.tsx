@@ -14,8 +14,8 @@ import { wayfindingPaths } from "./weg_layout";
 
 const RaumplanPdfViewer = dynamic(() => import("./raumplan_pdf_viewer"), {
   loading: () => (
-    <div className="overflow-auto rounded-3xl bg-white p-4 shadow-sm ring-1 ring-zinc-200">
-      <div className="flex min-h-[480px] items-center justify-center rounded-2xl border border-dashed border-zinc-300 text-sm text-zinc-500">
+    <div className="overflow-auto rounded-3xl bg-white p-4 shadow-sm ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-700">
+      <div className="flex min-h-[480px] items-center justify-center rounded-2xl border border-dashed border-zinc-300 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400">
         Lageplan wird geladen...
       </div>
     </div>
@@ -148,11 +148,11 @@ export default function RaumplanPage() {
   const rooms: RoomBase[] = [...roomsWithCalendars, ...leereRaeume];
 
   return (                                           // Hauptlayout der Seite mit dem Lageplan und den Raumstatusinformationen, die alle 3 Sekunden aktualisiert werden
-    <main className="min-h-screen bg-zinc-100 px-6 py-10 text-zinc-900">
+    <main className="min-h-screen bg-zinc-100 px-6 py-10 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
       <div className="mx-auto flex max-w-[3000px] flex-col gap-6">                 {/*Layout-Breite von max-w-6xl auf max-w-7xl, in dem Sich das PDF befindet*/}
         <div className="flex items-center justify-between gap-4">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
               Interaktiver Lageplan
             </p>
             <h1 className="mt-2 text-3xl font-bold">ICF New Home</h1>
@@ -160,7 +160,7 @@ export default function RaumplanPage() {
           </div>
           <Link
             href="/"
-            className="rounded-full border border-zinc-300 px-4 py-2 text-sm font-semibold text-zinc-700 transition hover:bg-white"
+            className="rounded-full border border-zinc-300 px-4 py-2 text-sm font-semibold text-zinc-700 transition hover:bg-white dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900"
           >
             Zur Startseite
           </Link>
