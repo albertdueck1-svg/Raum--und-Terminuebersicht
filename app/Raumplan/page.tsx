@@ -14,8 +14,9 @@ import { wayfindingPaths } from "./weg_layout";
 
 const RaumplanPdfViewer = dynamic(() => import("./raumplan_pdf_viewer"), {
   loading: () => (
-    <div className="overflow-auto rounded-3xl bg-white p-4 shadow-sm ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-700"> 
-      <div className="flex min-h-[480px] items-center justify-center rounded-2xl border border-dashed border-zinc-300 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400">     // Hier kann der Darkmode eingestellt werden.
+    <div className="overflow-hidden rounded-3xl bg-white p-2 shadow-sm ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-700 sm:p-4"> 
+      <div className="mx-auto flex aspect-video w-full max-w-[calc((100vh-220px)*16/9)] items-center justify-center rounded-2xl border border-dashed border-zinc-300 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400">
+        {/* Hier kann der Darkmode eingestellt werden. */}
         Lageplan wird geladen...
       </div>
     </div>

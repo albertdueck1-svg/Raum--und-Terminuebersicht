@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import RaumplanOverlay from "./raumoverlay";
 import type { OrientationPoint, RoomBase, WayfindingPath } from "./raumplan_positions";
 
@@ -25,29 +26,76 @@ export default function RaumplanPdfViewer({
   rooms,
   wayfindingPaths = [],
 }: RaumplanPdfViewerProps) {
-  return (
-    <div className="overflow-auto rounded-3xl bg-white p-4 shadow-sm ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-700"> {/* Hier kann der Darkmode eingestellt werden fürs PDF*/}
-      <div className="relative mx-auto w-fit">
-        <Image
-          alt="Lageplan ICF"
-          className="block max-w-none"
-          height={planDisplayHeight}
-          priority
-          //src="/Lageplan_ICF_Neu_V3.png"
-          src="/Lageplan_ICF_Neu_V6.png"
-          style={{
-            height: `${planDisplayHeight}px`,
-            width: `${planDisplayWidth}px`,
-          }}
-          width={planDisplayWidth}
-        />
+  const stageRef = useRef<HTMLDivElement | null>(null);
+  const [scale, setScale] = useState(1);
 
-        <RaumplanOverlay
-          orientationPoint={orientationPoint}
-          roomCalendars={roomCalendars}
-          rooms={rooms}
-          wayfindingPaths={wayfindingPaths}
-        />
+  useEffect(() => {
+    const updateScale = () => {
+      if (!stageRef.current) {
+        return;
+      }
+
+      const { width } = stageRef.current.getBoundingClientRect();
+      setScale(width / planDisplayWidth);
+    };
+
+    updateScale();
+
+    const resizeObserver = new ResizeObserver(updateScale);
+
+    if (stageRef.current) {
+      resizeObserver.observe(stageRef.current);
+    }
+
+    window.addEventListener("resize", updateScale);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateScale);
+    };
+  }, []);
+
+  return (
+    <div className="overflow-hidden rounded-3xl bg-white p-2 shadow-sm ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-700 sm:p-4"> {/* Hier kann der Darkmode eingestellt werden fürs PDF*/}
+      <div
+        className="mx-auto w-full"
+        style={{
+          aspectRatio: `${planDisplayWidth} / ${planDisplayHeight}`,
+          maxHeight: "calc(100vh - 220px)",
+          maxWidth: "calc((100vh - 220px) * 16 / 9)",
+        }}
+      >
+        <div ref={stageRef} className="relative h-full w-full overflow-hidden">
+          <div
+            className="absolute left-0 top-0 origin-top-left"
+            style={{
+              height: `${planDisplayHeight}px`,
+              transform: `scale(${scale})`,
+              width: `${planDisplayWidth}px`,
+            }}
+          >
+            <Image
+              alt="Lageplan ICF"
+              className="block max-w-none"
+              height={planDisplayHeight}
+              priority
+              //src="/Lageplan_ICF_Neu_V3.png"
+              src="/Lageplan_ICF_Neu_V6.png"
+              style={{
+                height: `${planDisplayHeight}px`,
+                width: `${planDisplayWidth}px`,
+              }}
+              width={planDisplayWidth}
+            />
+
+            <RaumplanOverlay
+              orientationPoint={orientationPoint}
+              roomCalendars={roomCalendars}
+              rooms={rooms}
+              wayfindingPaths={wayfindingPaths}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
