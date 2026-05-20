@@ -33,8 +33,8 @@ export default function RaumplanPdfViewer({
           className="block max-w-none"
           height={planDisplayHeight}
           priority
-          src="/Lageplan_ICF_Neu_V3.png"
-          // src="/Lageplan_ICF_Neu_V4.png"
+          //src="/Lageplan_ICF_Neu_V3.png"
+          src="/Lageplan_ICF_Neu_V6.png"
           style={{
             height: `${planDisplayHeight}px`,
             width: `${planDisplayWidth}px`,

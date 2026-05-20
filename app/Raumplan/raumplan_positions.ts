@@ -142,7 +142,7 @@ export const baseRooms: RoomBase[] = [
     timeClassName: "text-[10px]",
     timeFontSize: "20px",
     top: 598,
-    left: 1225,
+    left: 2025,
     width: 495,
     height: 514,
   },
