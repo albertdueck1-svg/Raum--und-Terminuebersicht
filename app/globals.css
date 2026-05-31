@@ -1,10 +1,19 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Flama Semicondensed";
+  src: url("/fonts/FlamaSemicondensed-Medium.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400 700;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
   --font-sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
+  --font-room-names: "Flama Semicondensed", var(--font-sans);
 }
 
 @theme inline {

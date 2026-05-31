@@ -1,7 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Link from "next/link";             // Interne Verlinkung mit Next.js Link-Komponente
 import { useEffect, useState } from "react";
 import RaumplanLegende, { raumplanLegende } from "./raumplan_legende";
 import { leereRaeume } from "./leere_raeume";
@@ -149,10 +148,13 @@ export default function RaumplanPage() {
   const rooms: RoomBase[] = [...roomsWithCalendars, ...leereRaeume];
 
   return (                                           // Hauptlayout der Seite mit dem Lageplan und den Raumstatusinformationen, die alle 3 Sekunden aktualisiert werden
-    <main className="min-h-screen bg-zinc-100 px-6 py-10 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
+    <main
+      className="min-h-screen bg-zinc-100 px-6 py-10 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100"
+      style={{ fontFamily: "var(--font-room-names)" }}
+    >
       <div className="mx-auto flex max-w-[3000px] flex-col gap-6">                 {/*Layout-Breite von max-w-6xl auf max-w-7xl, in dem Sich das PDF befindet*/}
         <div className="flex items-center justify-between gap-4">
-          <div>
+          {/* <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">
               Interaktiver Lageplan
             </p>
@@ -164,7 +166,7 @@ export default function RaumplanPage() {
             className="rounded-full border border-zinc-300 px-4 py-2 text-sm font-semibold text-zinc-700 transition hover:bg-white dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900"
           >
             Zur Startseite
-          </Link>
+          </Link> */}
         </div>
 
         

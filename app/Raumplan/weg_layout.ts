@@ -9,11 +9,11 @@ export const wayfindingPaths: WayfindingPath[] = [
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
-      { left: 1628, top: 475 },
-      { left: 1628, top: 550 },
-      { left: 1187, top: 550 },
-      { left: 1187, top: 855 },
-      { left: 1210, top: 855 },
+      { left: 3435, top: 555 },
+      { left: 3435, top: 615 },
+      { left: 3030, top: 615 },
+      { left: 3030, top: 877 },
+      { left: 3045, top: 877 },
     ],
   },
   {
@@ -23,8 +23,8 @@ export const wayfindingPaths: WayfindingPath[] = [
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
-      { left: 1582, top: 550 },
-      { left: 1582, top: 573 },
+      { left: 3395, top: 615 },
+      { left: 3395, top: 640 },
             ]
  },
    {
@@ -34,9 +34,9 @@ export const wayfindingPaths: WayfindingPath[] = [
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
-      { left: 1187, top: 860 },
-      { left: 1187, top: 1160 },
-      { left: 1210, top: 1160 },
+      { left: 3030, top: 889 },
+      { left: 3030, top: 1178 },
+      { left: 3045, top: 1178 },
             ]
  },
     {
@@ -46,10 +46,10 @@ export const wayfindingPaths: WayfindingPath[] = [
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
-      { left: 1187, top: 1170 },
-      { left: 1187, top: 1825 },
-      { left: 1265, top: 1825 },
-      { left: 1265, top: 1770 },
+      { left: 3030, top: 1190 },
+      { left: 3030, top: 1780 },
+      { left: 3100, top: 1780 },
+      { left: 3100, top: 1750 },
             ]
  },
   {
@@ -59,9 +59,9 @@ export const wayfindingPaths: WayfindingPath[] = [
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
-      { left: 1187, top: 550 },
-      { left: 1187, top: 540 },
-      { left: 1165, top: 540 },
+      { left: 3019, top: 615 },
+      { left: 3019, top: 608 },
+      { left: 3010, top: 608 },
             ]
  },
   {
@@ -71,9 +71,9 @@ export const wayfindingPaths: WayfindingPath[] = [
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
-      { left: 1180, top: 700 },
-      { left: 585, top: 700 },
-      { left: 585, top: 720 },
+      { left: 3018, top: 755 },
+      { left: 2475, top: 755 },
+      { left: 2475, top: 770 },
             ]
   },
 
@@ -84,12 +84,12 @@ export const wayfindingPaths: WayfindingPath[] = [
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
-      { left: 580, top: 700 },
-      { left: 460, top: 700 },
-      { left: 460, top: 630 },
-      { left: 392, top: 630 }, 
-      { left: 392, top: 850 },
-      { left: 411, top: 850 }, 
+      { left: 2463, top: 755 },
+      { left: 2360, top: 755 },
+      { left: 2360, top: 700 },
+      { left: 2297, top: 700 }, 
+      { left: 2297, top: 892 },
+      { left: 2312, top: 892 }, 
         ]
  },
   {
@@ -99,9 +99,9 @@ export const wayfindingPaths: WayfindingPath[] = [
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
-    { left: 392, top: 860 },
-    { left: 392, top: 992 },
-    { left: 377, top: 992 },
+    { left: 2297, top: 901 },
+    { left: 2297, top: 1025 },
+    { left: 2282, top: 1025 },
       ]
  },
    {
@@ -111,8 +111,8 @@ export const wayfindingPaths: WayfindingPath[] = [
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
-    { left: 402, top: 946 },
-    { left: 411, top: 946 },
+    { left: 2306, top: 985 },
+    { left: 2312, top: 985 },
       ]
  },
    {
@@ -122,9 +122,9 @@ export const wayfindingPaths: WayfindingPath[] = [
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
-    { left: 788, top: 710 },
-    { left: 788, top: 959 },
-    { left: 770, top: 959 },
+    { left: 2665, top: 767 },
+    { left: 2665, top: 994 },
+    { left: 2650, top: 994 },
       ]
  },
  {
@@ -134,9 +134,9 @@ export const wayfindingPaths: WayfindingPath[] = [
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
-    { left: 852, top: 690 },
-    { left: 852, top: 555 },
-    { left: 845, top: 555 },
+    { left: 2720, top: 743 },
+    { left: 2720, top: 612 },
+    { left: 2714, top: 612 },
       ]
  },
  {
@@ -146,11 +146,11 @@ export const wayfindingPaths: WayfindingPath[] = [
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
-    { left: 852, top: 545 },
-    { left: 852, top: 410 },
-    { left: 905, top: 410 },
-    { left: 905, top: 310 },
-    { left: 892, top: 310 },
+    { left: 2720, top: 600 },
+    { left: 2720, top: 490 },
+    { left: 2775, top: 490 },
+    { left: 2775, top: 390 },
+    { left: 2760, top: 390 },
       ]
  },
   {
@@ -160,9 +160,9 @@ export const wayfindingPaths: WayfindingPath[] = [
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
-    { left: 1179, top: 540 },
-    { left: 1179, top: 410 },
-    { left: 905, top: 410 },
+    { left: 3019, top: 595 },
+    { left: 3019, top: 490 },
+    { left: 2775, top: 490 },
     
       ]
  },
@@ -173,9 +173,9 @@ export const wayfindingPaths: WayfindingPath[] = [
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
-    { left: 905, top: 300 },
-    { left: 905, top: 230 },
-    { left: 892, top: 230 },
+    { left: 2775, top: 380 },
+    { left: 2775, top: 315 },
+    { left: 2760, top: 315 },
           ]
  },
 ];

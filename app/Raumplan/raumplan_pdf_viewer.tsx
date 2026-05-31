@@ -80,7 +80,7 @@ export default function RaumplanPdfViewer({
               height={planDisplayHeight}
               priority
               //src="/Lageplan_ICF_Neu_V3.png"
-              src="/Lageplan_ICF_Neu_V6.png"
+              src="/Lageplan_ICF_Neu_V7.png"
               style={{
                 height: `${planDisplayHeight}px`,
                 width: `${planDisplayWidth}px`,

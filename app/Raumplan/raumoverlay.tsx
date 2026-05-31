@@ -277,6 +277,7 @@ export default function RaumplanOverlay({
                   className={room.nameClassName}
                   style={{
                     color: room.labelColor,
+                    fontFamily: "var(--font-room-names)",
                     fontSize: room.nameFontSize,
                     transform: `translate(${room.nameOffsetX ?? 0}px, ${room.nameOffsetY ?? 0}px)`,
                   }}
@@ -293,6 +294,7 @@ export default function RaumplanOverlay({
                       ...getEventBubbleStyle(room),
                       ...getEventBubblePosition(room),
                       fontSize: room.overlayInfoFontSize ?? "10px",
+                      fontFamily: "var(--font-room-names)",
                       width: room.eventBubbleWidth ? `${room.eventBubbleWidth}px` : undefined,
                     }}
                   >
@@ -357,6 +359,7 @@ export default function RaumplanOverlay({
                   <div
                     className="mt-2 flex max-w-full flex-col gap-1 rounded-md bg-black/20 px-2 py-1 text-left font-medium text-white"
                     style={{
+                      fontFamily: "var(--font-room-names)",
                       fontSize: room.overlayInfoFontSize ?? "10px",
                     }}
                   >
@@ -380,6 +383,7 @@ export default function RaumplanOverlay({
                       className="mt-1 uppercase tracking-[0.12em] text-white/80"
                       style={{
                         fontSize: room.overlayInfoLabelFontSize ?? "9px",
+                        fontFamily: "var(--font-room-names)",
                       }}
                     >
                       {raumplanLegende.overlayTexts.nextLabel}
@@ -403,6 +407,7 @@ export default function RaumplanOverlay({
                     backgroundColor: room.labelBackgroundColor ?? "#ffffff",
                     border: `1px solid ${room.labelBorderColor ?? "#d4d4d8"}`,
                     color: room.labelColor ?? "#18181b",
+                    fontFamily: "var(--font-room-names)",
                     fontSize: room.nameFontSize,
                     left: room.width + (room.labelOffsetX ?? 10),
                     top: room.labelOffsetY ?? 0,

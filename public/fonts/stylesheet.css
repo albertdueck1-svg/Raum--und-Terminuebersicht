@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'Flama Semicond';
+    src: url('FlamaSemicond-Ultralight.eot');
+    src: local('FlamaSemicond-Ultralight'),
+        url('FlamaSemicond-Ultralight.eot?#iefix') format('embedded-opentype'),
+        url('FlamaSemicond-Ultralight.woff2') format('woff2'),
+        url('FlamaSemicond-Ultralight.woff') format('woff'),
+        url('FlamaSemicond-Ultralight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Flama Semicond';
+    src: url('FlamaSemicond-Semibold.eot');
+    src: local('FlamaSemicond-Semibold'),
+        url('FlamaSemicond-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('FlamaSemicond-Semibold.woff2') format('woff2'),
+        url('FlamaSemicond-Semibold.woff') format('woff'),
+        url('FlamaSemicond-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Flama Semicond';
+    src: url('FlamaSemicond-Bold.eot');
+    src: local('FlamaSemicond-Bold'),
+        url('FlamaSemicond-Bold.eot?#iefix') format('embedded-opentype'),
+        url('FlamaSemicond-Bold.woff2') format('woff2'),
+        url('FlamaSemicond-Bold.woff') format('woff'),
+        url('FlamaSemicond-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Flama Semicond';
+    src: url('FlamaSemicond-Light.eot');
+    src: local('FlamaSemicond-Light'),
+        url('FlamaSemicond-Light.eot?#iefix') format('embedded-opentype'),
+        url('FlamaSemicond-Light.woff2') format('woff2'),
+        url('FlamaSemicond-Light.woff') format('woff'),
+        url('FlamaSemicond-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Flama Semicond';
+    src: url('FlamaSemicond-Extrabold.eot');
+    src: local('FlamaSemicond-Extrabold'),
+        url('FlamaSemicond-Extrabold.eot?#iefix') format('embedded-opentype'),
+        url('FlamaSemicond-Extrabold.woff2') format('woff2'),
+        url('FlamaSemicond-Extrabold.woff') format('woff'),
+        url('FlamaSemicond-Extrabold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Flama Semicond Basic';
+    src: url('FlamaSemicond-Basic.eot');
+    src: local('FlamaSemicond-Basic'),
+        url('FlamaSemicond-Basic.eot?#iefix') format('embedded-opentype'),
+        url('FlamaSemicond-Basic.woff2') format('woff2'),
+        url('FlamaSemicond-Basic.woff') format('woff'),
+        url('FlamaSemicond-Basic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Flama Semicond Book';
+    src: url('FlamaSemicond-Book.eot');
+    src: local('FlamaSemicond-Book'),
+        url('FlamaSemicond-Book.eot?#iefix') format('embedded-opentype'),
+        url('FlamaSemicond-Book.woff2') format('woff2'),
+        url('FlamaSemicond-Book.woff') format('woff'),
+        url('FlamaSemicond-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Flama Semicond';
+    src: url('FlamaSemicond-Medium.eot');
+    src: local('FlamaSemicond-Medium'),
+        url('FlamaSemicond-Medium.eot?#iefix') format('embedded-opentype'),
+        url('FlamaSemicond-Medium.woff2') format('woff2'),
+        url('FlamaSemicond-Medium.woff') format('woff'),
+        url('FlamaSemicond-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Flama Semicond';
+    src: url('FlamaSemicond-Thin.eot');
+    src: local('FlamaSemicond-Thin'),
+        url('FlamaSemicond-Thin.eot?#iefix') format('embedded-opentype'),
+        url('FlamaSemicond-Thin.woff2') format('woff2'),
+        url('FlamaSemicond-Thin.woff') format('woff'),
+        url('FlamaSemicond-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Flama Semicond';
+    src: url('FlamaSemicond-Black.eot');
+    src: local('FlamaSemicond-Black'),
+        url('FlamaSemicond-Black.eot?#iefix') format('embedded-opentype'),
+        url('FlamaSemicond-Black.woff2') format('woff2'),
+        url('FlamaSemicond-Black.woff') format('woff'),
+        url('FlamaSemicond-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
