@@ -160,14 +160,14 @@ export function getLegendItemByStatus(status: RoomStatus): LegendItem {
 export default function RaumplanLegende() {
   return (
     <aside
-      className="rounded-3xl border p-5 shadow-sm"
+      className="rounded-2xl border p-3 shadow-sm"
       style={{
         backgroundColor: raumplanLegende.card.backgroundColor,
         borderColor: raumplanLegende.card.borderColor,
       }}
     >
       <p
-        className="text-sm font-semibold uppercase tracking-[0.18em]"
+        className="text-xs font-semibold uppercase tracking-[0.16em]"
         style={{
           color: raumplanLegende.card.titleColor,
         }}
@@ -175,7 +175,7 @@ export default function RaumplanLegende() {
         {raumplanLegende.card.title}
       </p>
       <p
-        className="mt-2 max-w-2xl text-sm"
+        className="mt-1 max-w-2xl text-xs"
         style={{
           color: raumplanLegende.card.subtitleColor,
         }}
@@ -183,16 +183,16 @@ export default function RaumplanLegende() {
         {raumplanLegende.card.subtitle}
       </p>
 
-      <div className="mt-4 flex flex-wrap gap-4 ">
+      <div className="mt-3 flex flex-wrap gap-2">
         {raumplanLegende.items.map((item) => (
           <div
             key={item.id}
-            className="flex min-w-[220px] items-center gap-3 rounded-2xl border border-zinc-200 bg-zinc-50 px-4 py-3"
+            className="flex min-w-[180px] items-center gap-2 rounded-xl border border-zinc-200 bg-zinc-50 px-3 py-2"
           >
             {item.preview === "wayfinding" ? (
               <svg
                 aria-hidden="true"
-                className="h-5 w-10 shrink-0"
+                className="h-4 w-8 shrink-0"
                 viewBox="0 0 40 20"
               >
                 <polyline
@@ -213,7 +213,7 @@ export default function RaumplanLegende() {
               </svg>
             ) : (
               <span
-                className="h-5 w-5 shrink-0 rounded-md border-2 "
+                className="h-4 w-4 shrink-0 rounded border-2"
                 style={{
                   backgroundColor: item.fillColor,
                   backgroundImage: item.fillImage,
@@ -222,8 +222,8 @@ export default function RaumplanLegende() {
               />
             )}
             <span className="flex flex-col">
-              <span className="text-sm font-semibold text-zinc-900">{item.label}</span>
-              <span className="text-xs text-zinc-600">{item.description}</span>
+              <span className="text-xs font-semibold text-zinc-900">{item.label}</span>
+              <span className="text-[11px] text-zinc-600">{item.description}</span>
             </span>
           </div>
         ))}

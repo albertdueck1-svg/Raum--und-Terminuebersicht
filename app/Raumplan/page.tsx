@@ -14,7 +14,7 @@ import { wayfindingPaths } from "./weg_layout";
 const RaumplanPdfViewer = dynamic(() => import("./raumplan_pdf_viewer"), {
   loading: () => (
     <div className="overflow-hidden rounded-3xl bg-white p-2 shadow-sm ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-700 sm:p-4"> 
-      <div className="mx-auto flex aspect-video w-full max-w-[calc((100vh-220px)*16/9)] items-center justify-center rounded-2xl border border-dashed border-zinc-300 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400">
+      <div className="mx-auto flex aspect-video w-full max-w-[calc((100vh-150px)*16/9)] items-center justify-center rounded-2xl border border-dashed border-zinc-300 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400">
         {/* Hier kann der Darkmode eingestellt werden. */}
         Lageplan wird geladen...
       </div>
@@ -149,10 +149,10 @@ export default function RaumplanPage() {
 
   return (                                           // Hauptlayout der Seite mit dem Lageplan und den Raumstatusinformationen, die alle 3 Sekunden aktualisiert werden
     <main
-      className="min-h-screen bg-zinc-100 px-6 py-10 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100"
+      className="min-h-screen bg-zinc-100 px-6 py-6 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100"
       style={{ fontFamily: "var(--font-room-names)" }}
     >
-      <div className="mx-auto flex max-w-[3000px] flex-col gap-6">                 {/*Layout-Breite von max-w-6xl auf max-w-7xl, in dem Sich das PDF befindet*/}
+      <div className="mx-auto flex max-w-[3000px] flex-col gap-3">                 {/*Layout-Breite von max-w-6xl auf max-w-7xl, in dem Sich das PDF befindet*/}
         <div className="flex items-center justify-between gap-4">
           {/* <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-400">

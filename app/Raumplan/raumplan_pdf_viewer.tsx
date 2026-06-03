@@ -61,8 +61,8 @@ export default function RaumplanPdfViewer({
         className="mx-auto w-full"
         style={{
           aspectRatio: `${planDisplayWidth} / ${planDisplayHeight}`,
-          maxHeight: "calc(100vh - 220px)",
-          maxWidth: "calc((100vh - 220px) * 16 / 9)",
+          maxHeight: "calc(100vh - 150px)",
+          maxWidth: "calc((100vh - 150px) * 16 / 9)",
         }}
       >
         <div ref={stageRef} className="relative h-full w-full overflow-hidden">
