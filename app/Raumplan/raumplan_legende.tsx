@@ -42,7 +42,7 @@ export const raumplanLegende = {
     {
       id: "soon",
       status: "soon",
-      label: "Raum wird gleich belegt",
+      label: "Raum wird demnächst belegt",
       description: " ",
       fillColor: "#f9bc83",
       borderColor: "#f9bc83",

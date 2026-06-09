@@ -674,8 +674,8 @@ export const orientationPoint: OrientationPoint = {
   labelBorderColor: "#2563eb",
   labelColor: "#ffffff",
   labelPosition: "inside",
-  labelOffsetX: 12,
-  labelOffsetY: 12,
-  left: 3403,
+  labelOffsetX: 15,
+  labelOffsetY: 15,
+  left: 3388,
   top: 494,
 };

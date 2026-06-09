@@ -9,7 +9,7 @@ export const wayfindingPaths: WayfindingPath[] = [
     strokeWidth: 10,
     strokeDasharray: "18 12",
     points: [
-      { left: 3435, top: 555 },
+      { left: 3435, top: 586 },
       { left: 3435, top: 615 },
       { left: 3030, top: 615 },
       { left: 3030, top: 877 },

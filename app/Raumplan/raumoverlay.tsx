@@ -232,7 +232,7 @@ export default function RaumplanOverlay({
         }}
       >
         <div
-          className="h-5 w-5 rounded-full shadow-lg animate-pulse"    // Orientierungspunkt mit rotem Kreis und Puls-Animation.
+          className="h-10 w-10 rounded-full shadow-lg animate-pulse"    // Orientierungspunkt mit rotem Kreis und Puls-Animation.
           style={{
             backgroundColor: raumplanLegende.orientationPoint.dotBackgroundColor,
             border: `1px solid ${raumplanLegende.orientationPoint.dotBorderColor}`,
@@ -240,7 +240,7 @@ export default function RaumplanOverlay({
           }}
         />
         <span
-          className="rounded-full px-2 py-1 text-[10px] font-semibold"
+          className="rounded-full px-2 py-1 text-[20px] font-semibold"
           style={{
             backgroundColor:
               orientationPoint.labelBackgroundColor ??
