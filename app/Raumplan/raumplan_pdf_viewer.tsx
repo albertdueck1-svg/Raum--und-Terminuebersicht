@@ -56,7 +56,7 @@ export default function RaumplanPdfViewer({
   }, []);
 
   return (
-    <div className="overflow-hidden rounded-3xl bg-white p-2 shadow-sm ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-700 sm:p-4"> {/* Hier kann der Darkmode eingestellt werden fürs PDF*/}
+    <div className="overflow-hidden rounded-3xl bg-white p-2 shadow-sm ring-1 ring-zinc-200 sm:p-4">
       <div
         className="mx-auto w-full"
         style={{

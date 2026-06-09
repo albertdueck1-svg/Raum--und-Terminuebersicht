@@ -242,9 +242,14 @@ export default function RaumplanOverlay({
         <span
           className="rounded-full px-2 py-1 text-[10px] font-semibold"
           style={{
-            backgroundColor: raumplanLegende.orientationPoint.badgeBackgroundColor,
-            border: `2px solid ${raumplanLegende.orientationPoint.badgeBorderColor}`,
-            color: raumplanLegende.orientationPoint.badgeTextColor,
+            backgroundColor:
+              orientationPoint.labelBackgroundColor ??
+              raumplanLegende.orientationPoint.badgeBackgroundColor,
+            border: `2px solid ${
+              orientationPoint.labelBorderColor ??
+              raumplanLegende.orientationPoint.badgeBorderColor
+            }`,
+            color: orientationPoint.labelColor ?? raumplanLegende.orientationPoint.badgeTextColor,
           }}
         >
           {orientationPoint.label}

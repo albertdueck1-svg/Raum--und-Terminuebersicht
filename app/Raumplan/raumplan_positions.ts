@@ -135,7 +135,7 @@ export const baseRooms: RoomBase[] = [
     // overlayGroundColor: "#0e3bb6",       //Rahmenfarbe pro Raum, wenn man sie von der Füllfarbe unterscheiden möchte. Aktuell nicht genutzt, da die meisten Räume einen transparenten Hintergrund haben, damit man die PDF-Details darunter sehen kann. Wenn du eine Rahmenfarbe angibst, solltest du auch eine `overlayBorderWidth` angeben, damit der Rahmen sichtbar wird.
     // overlayBorderColor: "#2a56ce",
     // overlayBorderWidth: "35px",
-    overlayInfoFontSize: "15px",
+    overlayInfoFontSize: "20px",
     overlayInfoLabelFontSize: "25px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     status: "free",
     time: "--:--",
@@ -187,6 +187,8 @@ export const baseRooms: RoomBase[] = [
     ],
     status: "free",
     time: "--:--",
+    overlayInfoFontSize: "20px",
+    overlayInfoLabelFontSize: "20px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     timeClassName: "text-[10px]",
     timeFontSize: "20px",
     top: 1143,
@@ -236,6 +238,8 @@ export const baseRooms: RoomBase[] = [
     status: "free",
     time: "--:--",
     timeClassName: "text-[10px]",
+    overlayInfoFontSize: "20px",
+    overlayInfoLabelFontSize: "20px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     top: 1460,
     left: 3064,
     width: 312,
@@ -262,8 +266,8 @@ export const baseRooms: RoomBase[] = [
     eventBubbleBackgroundColor: "#ffffffec",
     eventBubbleBorderColor: "#000000",
     eventBubbleTextColor: "hsl(240, 18%, 3%)",
-    overlayInfoFontSize: "10px",        //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
-    overlayInfoLabelFontSize: "10px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
+    overlayInfoFontSize: "15px",        //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
+    overlayInfoLabelFontSize: "15px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     bookedByVisibilityRules: [      // Beispielregel: Am Wochenende blendet die Arena den Namen der buchenden Person aus und zeigt nur die Uhrzeit an.
       {
         weekdays: [1, 2, 3, 4], // Montag bis Donnerstag
@@ -321,8 +325,8 @@ export const baseRooms: RoomBase[] = [
     eventBubbleBackgroundColor: "#ffffffda",
     eventBubbleBorderColor: "#000000",
     eventBubbleTextColor: "hsl(240, 18%, 3%)",
-    overlayInfoFontSize: "10px",        //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
-    overlayInfoLabelFontSize: "10px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
+    overlayInfoFontSize: "13px",        //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
+    overlayInfoLabelFontSize: "13px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     bookedByVisibilityRules: [      // Beispielregel: Am Wochenende blendet die Arena den Namen der buchenden Person aus und zeigt nur die Uhrzeit an.
       {
         weekdays: [1, 2, 3, 4], // Montag bis Donnerstag
@@ -454,11 +458,12 @@ export const baseRooms: RoomBase[] = [
         hideNextEventName: true,
       },
     ],
+    
     status: "free",
     time: "--:-- ",
     timeClassName: "text-[10px]",
-    overlayInfoFontSize: "9px",
-    overlayInfoLabelFontSize: "9px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
+    overlayInfoFontSize: "10px",
+    overlayInfoLabelFontSize: "10px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     top: 561,
     left: 2885,
     width: 110,
@@ -552,8 +557,8 @@ export const baseRooms: RoomBase[] = [
         hideNextEventName: true,
       },
     ],
-    overlayInfoFontSize: "10px",
-    overlayInfoLabelFontSize: "10px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
+    overlayInfoFontSize: "12px",
+    overlayInfoLabelFontSize: "12px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     status: "free",
     time: "--:--",
     timeClassName: "text-[10px]",
@@ -600,8 +605,8 @@ export const baseRooms: RoomBase[] = [
         hideNextEventName: true,
       },
     ],
-    overlayInfoFontSize: "12px",
-    overlayInfoLabelFontSize: "12px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
+    overlayInfoFontSize: "13px",
+    overlayInfoLabelFontSize: "13px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     // overlayBorderColor: "#a16207",
     // overlayBorderWidth: "3px",
     status: "free",
@@ -650,6 +655,8 @@ export const baseRooms: RoomBase[] = [
         hideNextEventName: true,
       },
     ],
+    overlayInfoFontSize: "15px",
+    overlayInfoLabelFontSize: "15px",     //  Die Schriftgröße der Labels "Aktuell" und "Als Nächstes" in den Infoblöcken.
     status: "free",
     time: "--:--",
     timeClassName: "text-[10px]",
@@ -663,9 +670,9 @@ export const baseRooms: RoomBase[] = [
 export const orientationPoint: OrientationPoint = {
   label: "Standort",
   nameFontSize: "30px",
-  labelBackgroundColor: "#ffffff",
-  labelBorderColor: "#d4d4d8",
-  labelColor: "#18181b",
+  labelBackgroundColor: "#2563eb",
+  labelBorderColor: "#2563eb",
+  labelColor: "#ffffff",
   labelPosition: "inside",
   labelOffsetX: 12,
   labelOffsetY: 12,

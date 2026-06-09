@@ -23,12 +23,12 @@ const defaultWayfindingStyle = {
 
 export const raumplanLegende = {      
   card: {                                   
-    backgroundColor: "#100d0d",
-    borderColor: "#100f0f",
+    backgroundColor: "#ffffff",
+    borderColor: "#e4e4e7",
     title: "Legende",
-    titleColor: "#ffffff",
+    titleColor: "#18181b",
     subtitle: "Damit du einen Überblick des New Home´s bekommst",
-    subtitleColor: "#ffffff",
+    subtitleColor: "#52525b",
   }, // Hier kann der Text eingebaut werden, der in dem Legendenbereich erscheinen soll
   items: [
     {
@@ -36,16 +36,16 @@ export const raumplanLegende = {
       status: "live",
       label: "Raum ist gerade belegt",
       description: " ",
-      fillColor: "#FFBECD",
-      borderColor: "#DC8196",
+      fillColor: "#e19fa6",
+      borderColor: "#e19fa6",
     },
     {
       id: "soon",
       status: "soon",
       label: "Raum wird gleich belegt",
       description: " ",
-      fillColor: "#FFA14A",
-      borderColor: "#CA680E",
+      fillColor: "#f9bc83",
+      borderColor: "#f9bc83",
     },
     {
       id: "blocked",
@@ -62,16 +62,16 @@ export const raumplanLegende = {
       status: "calendar-error",
       label: "Kalender nicht erreichbar",
       description: " ",
-      fillColor: "rgba(78, 222, 233, 0.82)",
-      borderColor: "rgba(78, 222, 233, 0.82)",
+      fillColor: "rgba(173, 190, 192, 0.82)",
+      borderColor: "rgba(173, 190, 192, 0.82)",
     },
     {
       id: "free",
       status: "free",
       label: "Raum ist frei",
       description: " ",
-      fillColor: "#4AFFD4",
-      borderColor: "#2DBF94",
+      fillColor: "#8ae1cd",
+      borderColor: "#8ae1cd",
     },
      
     {
@@ -79,33 +79,33 @@ export const raumplanLegende = {
       status: "free",
       label: "Frei nutzbare Fläche",
       description: " ",
-      fillColor: "rgba(251, 191, 36, 0.22)",
-      borderColor: "#d97706",
+      fillColor: "rgba(247, 247, 247, 0.54)",
+      borderColor: "#000000",
     },
 
         {
-      id: "wc-damen",
+      id: "wc-damen/herren",
       status: "free",
-      label: "Damen WC",
+      label: "Damen/Herren WC",
       description: " ",
-      fillColor: "#BC9CFF",
-      borderColor: "#8362E0",
+      fillColor: "rgba(183, 171, 217, 0.82)",
+      borderColor: "rgba(183, 171, 217, 0.82)",
     },
-            {
-      id: "wc-herren",
-      status: "free",
-      label: "Herren WC",
-      description: " ",
-      fillColor: "#CFFF48",
-      borderColor: "#A6D02f",
-    },
+    //         {
+    //   id: "wc-herren",
+    //   status: "free",
+    //   label: "Herren WC",
+    //   description: " ",
+    //   fillColor: "#CFFF48",
+    //   borderColor: "#A6D02f",
+    // },
             {
       id: "wc-behinderten",
       status: "free",
       label: "Behinderten WC",
       description: " ",
-      fillColor: "rgba(58, 223, 215, 0.22)",
-      borderColor: "rgba(58, 223, 215, 0.22)",
+      fillColor: "rgba(139, 121, 188, 0.82)",
+      borderColor: "rgba(139, 121, 188, 0.82)",
     },
 
       {
@@ -134,8 +134,8 @@ export const raumplanLegende = {
     freeRoomTime: "Aktuell frei",
   },
   orientationPoint: {
-    badgeBackgroundColor: "#b22222",
-    badgeBorderColor: "#a70e0e",
+    badgeBackgroundColor: "#2563eb",
+    badgeBorderColor: "#1d4ed8",
     badgeTextColor: "#ffffff",
     dotBackgroundColor: "#dc2626",
     dotBorderColor: "#7f1d1d",

@@ -27,6 +27,13 @@ const roomCalendars = {
     icsUrl:
       "https://outlook.office365.com/owa/calendar/6d5c09983e874642bbee91097d790425@icf-muenchen.de/17ca8c8a9f1f4e29af44e1039ad330a414750315795260955377/calendar.ics",
   },
+  // Studio: {
+  //   htmlUrl:
+  //     "https://p132-caldav.icloud.com/published/2/MTEwNDY3MDkwODExMDQ2N7ao2yYV1LreH5qR8BwCR0oDATWT0-3bqh1AcV-RtCPluPwQ178AaWHH0g4zc0307d4Ta9TD727mTAoY1SDj67M.html",    
+    
+  //   icsUrl:
+  //     "https://p132-caldav.icloud.com/published/2/MTEwNDY3MDkwODExMDQ2N7ao2yYV1LreH5qR8BwCR0oDATWT0-3bqh1AcV-RtCPluPwQ178AaWHH0g4zc0307d4Ta9TD727mTAoY1SDj67M.ics",
+  // },
 // Link bereits hinterelgt. 
   Chiemsee: {
     htmlUrl:
@@ -156,6 +163,12 @@ function extractValue(line: string) {
   return line.slice(line.indexOf(":") + 1).replace(/\\,/g, ",").replace(/\\n/g, " ");
 }
 
+function formatEventSummaryForDisplay(summary: string) {
+  const [, title] = summary.split(/\s[-–—]\s(.+)/);
+
+  return title?.trim() || summary.trim();
+}
+
 function parseCalendarEvents(icsText: string) {
   // Wir lesen nur die Basisdaten eines Termins aus: Start, Ende und Titel.
   const lines = unfoldIcsLines(icsText).split(/\r?\n/);
@@ -199,7 +212,7 @@ function parseCalendarEvents(icsText: string) {
     }
 
     if (line.startsWith("SUMMARY")) {
-      currentEvent.summary = extractValue(line);
+      currentEvent.summary = formatEventSummaryForDisplay(extractValue(line));
     }
   }
 
